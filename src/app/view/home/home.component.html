@@ -1,0 +1,31 @@
+ <div class="w-100 bg-primary vh-100 position-absolute">
+    <img src="assets/logo/digital_mag_hub_icon.png" class="position-absolute" style="top:0%;left:10%;z-index:1;" width="240">
+    <br />
+    <div class="position-absolute d-flex gap-3 flex-column vh-100 justify-content-center" style="z-index:15;left:10%;">
+        <p class="h2 text-danger">BIENVENIDO A DIGITAL MAG HUB</p>
+
+        <div class="d-flex gap-3">
+            <img src="assets/logo/digital_mag_hub_icon.png" width="48" height="48">
+            <h3 class="text-black" style="letter-spacing:6px;text-transform:uppercase;">
+                ¡Descubre todo lo que tenemos para ofrecerte!
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a routerLink="/login" class="btn btn-primary align-self-start px-4 py-2">
+                    Ir al inicio de sesión
+                </a>
+            </div>
+            <div class="col">
+
+                <a routerLink="/login" class="btn btn-primary align-self-start px-4 py-2">
+                    Crear una cuenta
+                </a>
+            </div>
+        </div>
+    </div>
+    <p class="text-white position-absolute" style="bottom:10%;left:10%;z-index:10;">
+        {{version}}
+    </p>
+    <img src="assets/images/digital-mag-hub-back-2.jpg" class="w-100 vh-100 position-absolute" style="object-fit:cover;">
+</div>
