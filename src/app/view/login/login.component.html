@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="login-containe">
+    <p class="h2 text-danger p-title">DIGITAL MAG HUB</p>
+    <div class="background-image">
+        <div class="login-modal">
+            <div>
+                <h2>Iniciar Sesión</h2>
+                <p class="mb-4 text-gray-600">Ingresa tus credenciales para continuar</p>
+            </div>
+            <div class="mb-3">
+                <label for="sign-in-email" class="form-label">Correo electrónico</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-envelope" id="password"></i>
+                    </span>
+                    <input [(ngModel)]="loginRequest.user" type="email" class="form-control" id="sign-in-email"
+                        name="sign-in-email" placeholder="Ej. dirección@dominio.com" requerid>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="sign-in-password" class="form-label">Contraseña</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fas fa-lock" id="password"></i>
+                    </span>
+                    <input [(ngModel)]="loginRequest.password" [type]="showPass ? 'text' : 'password'"
+                        class="form-control" id="sign-in-password" name="sign-in-password"
+                        placeholder="Ingresa tu contraseña" requerid>
+                    <span class="input-group-text" id="basic-addon1" (click)="togglePass()">
+                        <i class="fas fa-eye" [hidden]="showPass"></i>
+                        <i class="fas fa-eye-slash" [hidden]="!showPass"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button [disabled]="!isValid()" (click)="doLogin()" type="button" class="btn btn-primary w-100">
+                    Iniciar sesión
+                </button>
+            </div>
+            <div class="mb-3">
+                <!-- <p class="mb-4 text-gray-600">No tienes una cuenta?</p> -->
+                <a routerLink="/login" class="btn btn-primary align-self-start px-4 py-2">
+                    Crear una cuenta
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

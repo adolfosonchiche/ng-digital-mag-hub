@@ -7,6 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
+import { NabCommonsModule } from './nab-commons/nab-commons.module';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @NgModule({
   declarations: [
@@ -19,8 +23,11 @@ import { LoginComponent } from './view/login/login.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NabCommonsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

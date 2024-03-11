@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  loginRequest = { user: '', password: '' };
+  showErrorLogin = false;
+  showPass = false;
+
+  doLogin():void {
+    console.log('login')
+  }
+
+  isValid() {
+    return this.loginRequest.user && this.loginRequest.password;
+  }
+
+  togglePass() {
+    this.showPass = !this.showPass;
+  }
+
 }
