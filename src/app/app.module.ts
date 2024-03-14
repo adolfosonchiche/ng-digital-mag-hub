@@ -9,6 +9,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { NabCommonsModule } from './nab-commons/nab-commons.module';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { RegisterUserComponent } from './view/register-user/register-user.component';
 
 
 
@@ -17,6 +18,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
