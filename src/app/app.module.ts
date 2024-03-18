@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgSelectOption } from '@angular/forms';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { NabCommonsModule } from './nab-commons/nab-commons.module';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { RegisterUserComponent } from './view/register-user/register-user.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -26,6 +27,10 @@ import { RegisterUserComponent } from './view/register-user/register-user.compon
     FormsModule,
     HttpClientModule,
     NabCommonsModule,
+    NgSelectModule,
+  ],
+  exports: [
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

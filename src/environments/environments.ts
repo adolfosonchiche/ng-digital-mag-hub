@@ -1,5 +1,5 @@
 export const environment = {
   baseUrl: 'http://localhost:4200',
   production: false,
-  digitalMagHubUrl:'http://localhost:8088',
+  digitalMagHubUrl:'http://localhost:8080',
 }
