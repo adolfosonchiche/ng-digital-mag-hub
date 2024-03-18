@@ -10,7 +10,7 @@ const baseUrl = environment.digitalMagHubUrl + '/v1/auth';
 @Injectable({
     providedIn: 'root'
 })
-export class UsersService {
+export class AuthUsersService {
 
     constructor(
         private http: HttpClient
@@ -33,11 +33,4 @@ export class UsersService {
         }
         return this.http.post<any>(`${baseUrl}/sign-up`, user);
     }
-
-    getMe(): Observable<UserDto> {
-        return this.http.get<UserDto>(`${baseUrl}/me`);
-    }
-
-
-
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Role, User } from 'src/app/data/models/adm-usesr';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { UsersService } from 'src/app/services/auth/user.service';
+import { AuthUsersService } from 'src/app/services/auth/auth-user.service';
 import { ToasterService } from 'src/app/services/other/toaster/toaster.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class RegisterUserComponent implements OnInit {
   availableRole: Role[] = [new Role(101, 'Editor', "rol de editor"), new Role(102, 'Suscriptor', "rol de suscriptor")]
 
   constructor(
-    private userService: UsersService,
+    private authUserService: AuthUsersService,
     private authService: AuthService,
     private toaster: ToasterService,
     private router: Router
@@ -34,9 +34,9 @@ export class RegisterUserComponent implements OnInit {
 
   register(): void {
     if (this.isValid()) {
-      this.userService.save(this.user).subscribe({
+      this.authUserService.save(this.user).subscribe({
         next: (user) => {
-          console.log(user)
+          this.toaster.showSuccess("Usuario Registrado");
           this.authService.doLogin(user, { email: this.user.email, password: this.user.password });
         },
         error: _ => {
@@ -71,7 +71,7 @@ export class RegisterUserComponent implements OnInit {
       distinctUntilChanged()
     ).subscribe({
       next: () => {
-        this.userService.checkEmail(this.user.email).subscribe(
+        this.authUserService.checkEmail(this.user.email).subscribe(
           result => {
             console.log(result)
             this.userExist = result.status

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +8,20 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  loginRequest = { user: '', password: '' };
+  constructor(
+    private authService: AuthService
+  ){}
+
+  loginRequest = { email: '', password: '' };
   showErrorLogin = false;
   showPass = false;
 
   doLogin():void {
-    console.log('login')
+    this.authService.doLogin(undefined, this.loginRequest);
   }
 
   isValid() {
-    return this.loginRequest.user && this.loginRequest.password;
+    return this.loginRequest.email && this.loginRequest.password;
   }
 
   togglePass() {

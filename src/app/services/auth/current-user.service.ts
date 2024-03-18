@@ -5,10 +5,11 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ToasterEnum } from "src/global/toaster-enum";
 import jwt_decode from 'jwt-decode';
-import { UsersService } from './user.service';
+import { AuthUsersService } from './auth-user.service';
 import { User, UserDto } from 'src/app/data/models/adm-usesr';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
+import { UsersService } from '../other/amd-user/user.service';
 
 @Injectable({
   providedIn: 'root'
