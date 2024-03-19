@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { mergeMap, tap } from 'rxjs/operators';
 import { ToasterService } from '../other/toaster/toaster.service';
-import { environment } from 'src/environments/environments';
+import { environment } from 'src/environments/environment';
 import { User, UserDto } from 'src/app/data/models/adm-usesr';
 import { CurrentUserService } from './current-user.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private toaster: ToasterService,
-    private router:Router, 
+    private router:Router,
     private currentUser: CurrentUserService,
   ) {
   }
@@ -28,7 +28,7 @@ export class AuthService {
   doLogin(
     userDto: UserDto,
     loginRequest: any
-  ): void { 
+  ): void {
     this.http.post<any>(`${baseUrl}/sign-in`, loginRequest)
       .pipe(
         tap(token => {
@@ -41,7 +41,7 @@ export class AuthService {
         next: _ => {
             this.currentUser.updateCurrentUser(userDto);
             this.router.navigate([''])
-            this.toaster.showSuccess('Inicio de sesión Éxitoso');     
+            this.toaster.showSuccess('Inicio de sesión Éxitoso');
         },
         error: err => {this.toaster.showError("Error en inicio de sesión"); console.log(err)},
     });
