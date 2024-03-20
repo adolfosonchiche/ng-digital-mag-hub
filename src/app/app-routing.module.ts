@@ -9,6 +9,7 @@ const routes: Routes = [
   { path:'', component: HomeComponent },
   { path:'login', component: LoginComponent },
   { path:'register', component: RegisterUserComponent },
+  {path: 'digital', loadChildren: () => import('./digita-mag-hub/digita-mag-hub.module').then(m => m.DigitaMagHubModule)},
 ];
 
 @NgModule({

@@ -39,9 +39,7 @@ export class AuthService {
       )
       .subscribe({
         next: _ => {
-            this.currentUser.updateCurrentUser(userDto);
-            this.router.navigate([''])
-            this.toaster.showSuccess('Inicio de sesión Éxitoso');
+            this.currentUser.updateCurrentUser(userDto);            
         },
         error: err => {this.toaster.showError("Error en inicio de sesión"); console.log(err)},
     });

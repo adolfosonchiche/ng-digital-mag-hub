@@ -61,6 +61,8 @@ export class CurrentUserService {
         next: (user) => {
           this.dataSource.next(user);
           localStorage.setItem('profile', JSON.stringify(user));
+          this.toaster.showSuccess('Inicio de sesión Éxitoso');
+          this.router.navigate(['/digital/dashboard'])
         }, error: () => {
           this.logoutWithError();
         }
