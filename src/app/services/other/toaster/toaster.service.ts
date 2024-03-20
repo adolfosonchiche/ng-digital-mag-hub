@@ -51,4 +51,9 @@ export class ToasterService {
 
     return { borderClass: '', textClass: '', header: '' };
   }
+
+  showDefaultError(){
+    this.showError("An error has occurred, please try later.", "Error")
+  }
+
 }

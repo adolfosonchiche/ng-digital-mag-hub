@@ -1,0 +1,39 @@
+<div class="row mt-5">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="mb-3 d-flex flex-column align-items-center">
+      <h1 class="d-flex">Create Magazine</h1>
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newMagazine.name">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="newMagazine.description">
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Select a category</label>
+        <ng-select id="category" name="category" [(ngModel)]="newMagazine.catCategory" [items]="magazineCategories"
+                    bindLabel="description" [clearable]="false" [multiple]="false"
+        ></ng-select>
+      </div>
+      <div class="mb-3">
+        <label for="entryDate" class="form-label">Description</label>
+        <input type="datetime-local" class="form-control" id="entryDate" name="entryDate" [(ngModel)]="newMagazine.entryDate">
+      </div>
+      <div class="mb-3">
+        <label for="file" class="form-label">File</label>
+        <input type="file" class="form-control" id="file" name="file" (change)="loadFile($event)" accept="application/pdf">
+      </div>
+      <button class="btn btn-primary" (click)="save()" [disabled]="!fileLoaded">Save</button>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+    <iframe [src]="resource" width="100%" height="1000px" frameborder="0" scrolling="auto"></iframe>
+  </div>
+</div>

@@ -6,6 +6,31 @@ export class Category {
     public parentCategoryId !: number;
 }
 
+export class CategoryDto {
+  public categoryId !: number;
+  public description !: string;
+  public value1 !: string;
+  public value2 !: string;
+}
+
+export class NewMagazineDto {
+  public name:string;
+  public description:string;
+  public catCategory:CategoryDto;
+  public file:string;
+  public entryDate:string;
+}
+
+export class MagazineDto {
+  public name:string;
+  public description:string;
+  public catCategory:CategoryDto;
+  public userId:number;
+  public file:any;
+  public entryDate:string;
+  public catStatus:CategoryDto;
+}
+
 
 export class User {
     public userId !: number;
