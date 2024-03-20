@@ -38,6 +38,7 @@ export class RegisterUserComponent implements OnInit {
         next: (user) => {
           this.toaster.showSuccess("Usuario Registrado");
           this.authService.doLogin(user, { email: this.user.email, password: this.user.password });
+          //this.router.navigate(['/digital/dashboard'])
         },
         error: _ => {
           this.toaster.showError("Error en el servidor, intente mas tarde");

@@ -70,6 +70,8 @@ export class CurrentUserService {
     } else {
       this.dataSource.next(userData);
       localStorage.setItem('profile', JSON.stringify(userData));
+      this.toaster.showSuccess('Inicio de sesión Éxitoso');
+      this.router.navigate(['/digital/dashboard'])
     }
   }
 
