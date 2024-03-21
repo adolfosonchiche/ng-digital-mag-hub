@@ -19,4 +19,8 @@ export class MagazineService {
     return this.http.post<MagazineDto>(`${baseUrl}`, newMagazine);
   }
 
+  findMyMagazines():Observable<MagazineDto[]>{
+    return this.http.get<MagazineDto[]>(`${baseUrl}/my`)
+  }
+
 }

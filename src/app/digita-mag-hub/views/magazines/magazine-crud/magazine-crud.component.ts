@@ -44,7 +44,7 @@ export class MagazineCrudComponent implements OnInit{
   save(){
     this.magazineService.create(this.newMagazine).subscribe({
       next: (magazine) => {
-        this.toasterService.showSuccess("Entity created", "Success");
+        this.toasterService.showSuccess("Revista creada", "Success");
         const pdfSrc = 'data:application/pdf;base64,' + magazine.file;
         this.resource = this.sanitizer.bypassSecurityTrustResourceUrl(pdfSrc);
         void this.router.navigate(["/digital/magazines"])

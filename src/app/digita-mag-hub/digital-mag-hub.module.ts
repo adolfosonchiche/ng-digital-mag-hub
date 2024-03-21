@@ -5,13 +5,15 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { MagazineCrudComponent } from './views/magazines/magazine-crud/magazine-crud.component';
 import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule} from "@angular/forms";
+import { MagazineListComponent } from './views/magazines/magazine-list/magazine-list.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    MagazineCrudComponent
+    MagazineCrudComponent,
+    MagazineListComponent
   ],
   imports: [
     CommonModule,

@@ -53,7 +53,7 @@ export class ToasterService {
   }
 
   showDefaultError(){
-    this.showError("An error has occurred, please try later.", "Error")
+    this.showError("Error en el servidor, intente más tarde.", "Error")
   }
 
 }

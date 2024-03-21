@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="mt-5 d-flex flex-column align-items-center">
+      <h1>Mis revistas</h1>
+    </div>
+    <div class="mt-3 d-flex flex-column align-items-end">
+      <button class="btn btn-primary" routerLink="/digital/magazines/create">Crear revista</button>
+    </div>
+    <div class="mt-3">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th class="th-number" scope="col">#</th>
+          <th class="th-name" scope="col">Nombre</th>
+          <th class="th-description" scope="col">Descripción</th>
+          <th class="th-category" scope="col">Categoría</th>
+          <th class="th-entry-date" scope="col">Fecha y hora de ingreso</th>
+          <th class="th-status" scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let magazine of magazines; let i = index">
+            <tr>
+              <th scope="row">{{i + 1}}</th>
+              <td>{{magazine.name}}</td>
+              <td>{{magazine.description}}</td>
+              <td>{{magazine.catCategory.value2}}</td>
+              <td>{{magazine.entryDate}}</td>
+              <td>{{magazine.catStatus.value2}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-1"></div>
+</div>
