@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {CategoryDto} from "../../../data/models/adm-usesr";
+import {CategoryDto} from "../../../data/models/model";
 import {Observable} from "rxjs";
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/categories';

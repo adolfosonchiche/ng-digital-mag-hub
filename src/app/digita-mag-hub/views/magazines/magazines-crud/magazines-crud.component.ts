@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../../../services/other/category/category.service";
-import {CategoryDto, NewMagazineDto} from "../../../../data/models/adm-usesr";
+import {CategoryDto, NewMagazineDto} from "../../../../data/models/model";
 import {CategoryEnum} from "../../../../../global/category-enum";
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";

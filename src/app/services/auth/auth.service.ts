@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { mergeMap, tap } from 'rxjs/operators';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { environment } from 'src/environments/environment';
-import { User, UserDto } from 'src/app/data/models/adm-usesr';
+import { User, UserDto } from 'src/app/data/models/model';
 import { CurrentUserService } from './current-user.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
@@ -39,7 +39,7 @@ export class AuthService {
       )
       .subscribe({
         next: _ => {
-            this.currentUser.updateCurrentUser(userDto);            
+            this.currentUser.updateCurrentUser(userDto);
         },
         error: err => {this.toaster.showError("Error en inicio de sesión"); console.log(err)},
     });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {MagazineDto, NewMagazineDto} from "../../../data/models/adm-usesr";
+import {MagazineDto, NewMagazineDto} from "../../../data/models/model";
 import {environment} from "../../../../environments/environment";
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/magazines';

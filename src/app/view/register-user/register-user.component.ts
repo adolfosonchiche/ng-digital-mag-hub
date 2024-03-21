@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
-import { Role, User } from 'src/app/data/models/adm-usesr';
+import { Role, User } from 'src/app/data/models/model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AuthUsersService } from 'src/app/services/auth/auth-user.service';
 import { ToasterService } from 'src/app/services/other/toaster/toaster.service';

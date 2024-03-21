@@ -6,7 +6,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ToasterEnum } from "src/global/toaster-enum";
 import jwt_decode from 'jwt-decode';
 import { AuthUsersService } from './auth-user.service';
-import { User, UserDto } from 'src/app/data/models/adm-usesr';
+import { User, UserDto } from 'src/app/data/models/model';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
 import { UsersService } from '../other/amd-user/user.service';
