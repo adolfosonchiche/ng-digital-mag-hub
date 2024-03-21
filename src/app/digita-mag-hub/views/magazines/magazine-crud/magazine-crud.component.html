@@ -2,32 +2,32 @@
   <div class="col-3"></div>
   <div class="col-6">
     <div class="mb-3 d-flex flex-column align-items-center">
-      <h1 class="d-flex">Create Magazine</h1>
+      <h1 class="d-flex">Crear revista</h1>
     </div>
     <form>
       <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
+        <label for="name" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newMagazine.name">
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">Descripción</label>
         <input type="text" class="form-control" id="description" name="description" [(ngModel)]="newMagazine.description">
       </div>
       <div class="mb-3">
-        <label for="category" class="form-label">Select a category</label>
+        <label for="category" class="form-label">Selecciona una categoría</label>
         <ng-select id="category" name="category" [(ngModel)]="newMagazine.catCategory" [items]="magazineCategories"
                     bindLabel="description" [clearable]="false" [multiple]="false"
         ></ng-select>
       </div>
       <div class="mb-3">
-        <label for="entryDate" class="form-label">Description</label>
+        <label for="entryDate" class="form-label">Fecha y hora de ingreso</label>
         <input type="datetime-local" class="form-control" id="entryDate" name="entryDate" [(ngModel)]="newMagazine.entryDate">
       </div>
       <div class="mb-3">
-        <label for="file" class="form-label">File</label>
+        <label for="file" class="form-label">Archivo PDF</label>
         <input type="file" class="form-control" id="file" name="file" (change)="loadFile($event)" accept="application/pdf">
       </div>
-      <button class="btn btn-primary" (click)="save()" [disabled]="!fileLoaded">Save</button>
+      <button class="btn btn-primary" (click)="save()" [disabled]="!fileLoaded">Guardar</button>
     </form>
   </div>
   <div class="col-3"></div>

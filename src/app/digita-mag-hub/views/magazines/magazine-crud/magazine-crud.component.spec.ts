@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MagazinesCrudComponent } from './magazines-crud.component';
+import { MagazineCrudComponent } from './magazine-crud.component';
 
 describe('MagazinesCrudComponent', () => {
-  let component: MagazinesCrudComponent;
-  let fixture: ComponentFixture<MagazinesCrudComponent>;
+  let component: MagazineCrudComponent;
+  let fixture: ComponentFixture<MagazineCrudComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MagazinesCrudComponent]
+      declarations: [MagazineCrudComponent]
     });
-    fixture = TestBed.createComponent(MagazinesCrudComponent);
+    fixture = TestBed.createComponent(MagazineCrudComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

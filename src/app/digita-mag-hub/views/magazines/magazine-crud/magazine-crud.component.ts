@@ -5,13 +5,14 @@ import {CategoryEnum} from "../../../../../global/category-enum";
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-magazines-crud',
-  templateUrl: './magazines-crud.component.html',
-  styleUrls: ['./magazines-crud.component.scss']
+  selector: 'app-magazine-crud',
+  templateUrl: './magazine-crud.component.html',
+  styleUrls: ['./magazine-crud.component.scss']
 })
-export class MagazinesCrudComponent implements OnInit{
+export class MagazineCrudComponent implements OnInit{
 
   magazineCategories:CategoryDto[];
   newMagazine:NewMagazineDto;
@@ -23,6 +24,7 @@ export class MagazinesCrudComponent implements OnInit{
     private toasterService:ToasterService,
     private magazineService:MagazineService,
     private sanitizer:DomSanitizer,
+    private router:Router,
   ) {
   }
 
@@ -45,6 +47,7 @@ export class MagazinesCrudComponent implements OnInit{
         this.toasterService.showSuccess("Entity created", "Success");
         const pdfSrc = 'data:application/pdf;base64,' + magazine.file;
         this.resource = this.sanitizer.bypassSecurityTrustResourceUrl(pdfSrc);
+        void this.router.navigate(["/digital/magazines"])
       }, error: _  => this.toasterService.showDefaultError()
     })
   }
