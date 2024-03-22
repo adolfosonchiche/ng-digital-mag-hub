@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -9,8 +10,11 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class LoginComponent {
 
   constructor(
-    private authService: AuthService
-  ){}
+    private authService: AuthService,
+    private layoutControlService: LayoutControlService
+  ){
+    this.layoutControlService.hideNavbar();
+  }
 
   loginRequest = { email: '', password: '' };
   showErrorLogin = false;

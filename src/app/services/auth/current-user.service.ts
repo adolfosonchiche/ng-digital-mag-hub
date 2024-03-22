@@ -5,7 +5,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ToasterEnum } from "src/global/toaster-enum";
 import jwt_decode from 'jwt-decode';
-import { AuthUsersService } from './auth-user.service';
 import { User, UserDto } from 'src/app/data/models/model';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
@@ -26,7 +25,7 @@ export class CurrentUserService {
     private userService: UsersService,
     private layoutControlService: LayoutControlService
   ) {
-    /*this.logoutMultiCall();
+    this.logoutMultiCall();
     let jsonData = localStorage.getItem('profile');
     if (jsonData) {
       let data = JSON.parse(jsonData);
@@ -35,7 +34,7 @@ export class CurrentUserService {
     } else {
       this.dataSource.next(undefined);
       layoutControlService.hideNavbar();
-    }*/
+    }
   }
 
   isAuthenticated(): boolean {
@@ -49,6 +48,19 @@ export class CurrentUserService {
       return true;
     }
     return false;
+  }
+
+  logoutMultiCall() {
+    this.preventMultiCalls$.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe({
+      next: () => {
+        this.clearToken();
+        this.dataSource.next(new UserDto());
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   clearToken() {
@@ -104,7 +116,7 @@ export class CurrentUserService {
     }
   }
 
-  getMyRole() {
+  getMyRole(): any {
     let authToken = localStorage.getItem('tok-ayd') + '';
     try {
       let dataToken: any = jwt_decode(authToken);
@@ -122,6 +134,15 @@ export class CurrentUserService {
     } catch (error) {
       return undefined;
     }
+  }
+
+  getMe (): UserDto | undefined {
+    const profile = localStorage.getItem('profile');
+    if(profile) {
+      const userDto : UserDto = JSON.parse(profile);
+      return userDto;
+    }
+    return undefined;
   }
 
 }

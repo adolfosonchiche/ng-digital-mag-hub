@@ -1,0 +1,38 @@
+
+.profile-info {
+    .bradge {
+        background-color: black;
+        color: darkgray;
+        font-weight: 600;
+    }
+    
+    #notification-dropdown {
+        .notifications {
+            position: absolute;
+            .notify-mark {
+                position: absolute;
+                right: 0;
+                top: 0;
+                border-radius: 1000px;
+                width: 10px;
+                height: 10px;
+            }
+        }
+        .notification {
+            font-size: 13px !important;
+        }
+        #notification-items {
+            width: 132px;
+        }
+    }
+}
+.profile-image {
+    width: 44px;
+    object-fit: contain;
+    border-radius: 100px;
+}
+.dropdown-menu {
+    text-align: center;
+    right: 0;
+    left: auto;
+  }

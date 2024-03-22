@@ -5,6 +5,7 @@ import { Role, User } from 'src/app/data/models/model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AuthUsersService } from 'src/app/services/auth/auth-user.service';
 import { ToasterService } from 'src/app/services/other/toaster/toaster.service';
+import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
 
 @Component({
   selector: 'app-register-user',
@@ -24,8 +25,11 @@ export class RegisterUserComponent implements OnInit {
     private authUserService: AuthUsersService,
     private authService: AuthService,
     private toaster: ToasterService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private layoutControlService: LayoutControlService
+  ) {
+    this.layoutControlService.hideNavbar();
+  }
 
   ngOnInit(): void {
     this.user = new User();
