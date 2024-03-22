@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/digital/dashboard"><img src="assets/logo/digital_mag_hub_icon.png" alt=""
+        width="40px">Digital Mag Hub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/digital/dashboard">dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Revistas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/digital/magazines/create">Crear</a></li>
+            <li><a class="dropdown-item" >Ver</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item">Nuevo menu</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="profile-info d-felx align-items-center ">
+        <div class="dropdown">
+          <div class="d-flex nav-link nav-item dropdown" href="#" id="navbarUserDropdown" role="button"
+            data-bs-toggle="dropdown">
+            <div class="d-none d-sm-flex flex-column align-items-end grap-1">
+              <p class="fw-sm text-right text-nowrap mb-0 text-white"> {{currentUser.fullName}} </p>
+              <span class="badge px-3 rounded-pill badge-pill fw-normal ml-auto ignore-for-print">
+                {{sumaryRole}}
+              </span>
+
+            </div>
+            <img class="profile-image ml-3" src="assets/icon/user.png" width="40px"/>
+          </div>
+
+          <ul class="dropdown-menu dropdow-menu-rigth" 
+          aria-labelledby="navbarUserDropdown">
+            <li><a class="dropdown-item small" routerLink="/routePath">Perfil</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><button class="dropdown-item small">cerrar sesion</button></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

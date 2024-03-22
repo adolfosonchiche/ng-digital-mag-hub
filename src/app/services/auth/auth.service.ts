@@ -7,6 +7,7 @@ import { User, UserDto } from 'src/app/data/models/model';
 import { CurrentUserService } from './current-user.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
+import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/auth';
 
@@ -22,6 +23,7 @@ export class AuthService {
     private toaster: ToasterService,
     private router:Router,
     private currentUser: CurrentUserService,
+    private layoutControlService: LayoutControlService
   ) {
   }
 
@@ -39,6 +41,7 @@ export class AuthService {
       )
       .subscribe({
         next: _ => {
+            this.layoutControlService.showNavbar();
             this.currentUser.updateCurrentUser(userDto);
         },
         error: err => {this.toaster.showError("Error en inicio de sesión"); console.log(err)},
