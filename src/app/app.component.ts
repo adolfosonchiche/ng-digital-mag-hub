@@ -9,19 +9,16 @@ import { CurrentUserService } from './services/auth/current-user.service';
 })
 export class AppComponent implements OnInit {
 
-  showNavbar = false;
+  showNavbar = true;
   constructor(
     private layoutControlService: LayoutControlService,
     private currentUser: CurrentUserService,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
-    this.showNavbar = this.currentUser.isAuthenticated();
-    if(this.showNavbar) {
-      this.layoutControlService.showNavbar();   
-    } else {
-      this.layoutControlService.hideNavbar();
-    }
+    this.layoutControlService.showsNavbar
+      .subscribe(show => this.showNavbar = show);
   }
 
 }
