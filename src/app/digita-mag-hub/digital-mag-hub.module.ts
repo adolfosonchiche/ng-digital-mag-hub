@@ -6,6 +6,8 @@ import { MagazineCrudComponent } from './views/magazines/magazine-crud/magazine-
 import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule} from "@angular/forms";
 import { MagazineListComponent } from './views/magazines/magazine-list/magazine-list.component';
+import { MagazineCostComponent } from './views/magazines/magazine-cost/magazine-cost.component';
+import {HubCommonsModule} from "../nab-commons/hub-commons.module";
 
 
 
@@ -13,13 +15,15 @@ import { MagazineListComponent } from './views/magazines/magazine-list/magazine-
   declarations: [
     DashboardComponent,
     MagazineCrudComponent,
-    MagazineListComponent
+    MagazineListComponent,
+    MagazineCostComponent
   ],
   imports: [
     CommonModule,
     DigitalRoutingModule,
     NgSelectModule,
     FormsModule,
+    HubCommonsModule,
   ]
 })
 export class DigitalMagHubModule { }

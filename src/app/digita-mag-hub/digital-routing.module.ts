@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./views/dashboard/dashboard.component";
 import {MagazineCrudComponent} from "./views/magazines/magazine-crud/magazine-crud.component";
 import {MagazineListComponent} from "./views/magazines/magazine-list/magazine-list.component";
+import {MagazineCostComponent} from "./views/magazines/magazine-cost/magazine-cost.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -10,7 +11,8 @@ const routes: Routes = [
       path: 'magazines',
       children: [
         { path: '', component: MagazineListComponent },
-        { path: 'create', component: MagazineCrudComponent }
+        { path: 'create', component: MagazineCrudComponent },
+        { path: 'cost', component: MagazineCostComponent },
       ]
     }
   ];

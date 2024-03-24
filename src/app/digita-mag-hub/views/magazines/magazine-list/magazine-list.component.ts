@@ -23,7 +23,7 @@ export class MagazineListComponent implements OnInit{
       next: (magazines) => {
         this.magazines = magazines ?? [];
       }, error: _ => this.toasterService.showDefaultError()
-    })
+    });
   }
 
 }

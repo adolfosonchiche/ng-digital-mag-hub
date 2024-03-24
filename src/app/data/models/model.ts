@@ -29,6 +29,7 @@ export class MagazineDto {
   public file:any;
   public entryDate:string;
   public catStatus:CategoryDto;
+  public author:UserDto;
 }
 
 

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ToasterComponent } from './components/toaster/toaster.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { IconComponent } from './components/icon/icon.component';
+import { ActionComponent } from './components/action/action.component';
 
 
 
@@ -10,6 +12,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   declarations: [
     ToasterComponent,
     NavbarComponent,
+    IconComponent,
+    ActionComponent,
   ],
   imports: [
     CommonModule,
@@ -18,6 +22,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   exports: [
     ToasterComponent,
     NavbarComponent,
+    IconComponent,
+    ActionComponent,
   ]
 })
-export class NabCommonsModule { }
+export class HubCommonsModule { }

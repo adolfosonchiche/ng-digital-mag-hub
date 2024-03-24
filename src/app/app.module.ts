@@ -7,7 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgSelectOption } from '@angular/forms';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
-import { NabCommonsModule } from './nab-commons/nab-commons.module';
+import { HubCommonsModule } from './nab-commons/hub-commons.module';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { RegisterUserComponent } from './view/register-user/register-user.component';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -27,7 +27,7 @@ import { AuthInterceptorService } from './services/other/interceptor/auth-interc
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NabCommonsModule,
+    HubCommonsModule,
     NgSelectModule,
   ],
   exports: [
