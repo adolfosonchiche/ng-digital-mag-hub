@@ -31,6 +31,7 @@ export class MagazineDto {
   public entryDate:string;
   public catStatus:CategoryDto;
   public author:UserDto;
+  public costPerDay:number;
 }
 
 export class UpdateCostMagazineDto{
