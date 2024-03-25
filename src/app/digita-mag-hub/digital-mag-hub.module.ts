@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import { MagazineListComponent } from './views/magazines/magazine-list/magazine-list.component';
 import { MagazineCostComponent } from './views/magazines/magazine-cost/magazine-cost.component';
 import {HubCommonsModule} from "../nab-commons/hub-commons.module";
+import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -24,6 +25,7 @@ import {HubCommonsModule} from "../nab-commons/hub-commons.module";
     NgSelectModule,
     FormsModule,
     HubCommonsModule,
+    NgbDropdownItem,
   ]
 })
 export class DigitalMagHubModule { }

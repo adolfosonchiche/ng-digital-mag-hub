@@ -29,7 +29,9 @@
             <td>{{magazine.author.fullName}}</td>
             <td>{{magazine.catStatus.value2}}</td>
             <td>
-              <app-action></app-action>
+              <app-action>
+                <button ngbDropdownItem (click)="openAssignModal(magazine, assignCostAndPublishModal)">Asignar costo</button>
+              </app-action>
             </td>
           </tr>
         </ng-container>
@@ -39,3 +41,28 @@
   </div>
   <div class="col-1"></div>
 </div>
+
+<app-modal #assignCostAndPublishModal
+           title="Asignar costo y publicar"
+           btnText="Asignar y publicar"
+           (confirmationAction)="updateCostAndPublish()"
+           size="sm"
+>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="magazineCost.name" readonly>
+  </div>
+  <div class="mb-3">
+    <label for="cost" class="form-label">Costo</label>
+    <div class="row d-flex align-items-center">
+      <div class="col-2">
+        <div class="d-flex flex-column align-items-end">
+          <label class="form-label">Q.</label>
+        </div>
+      </div>
+      <div class="col-10">
+        <input type="number" class="form-control" id="cost" name="cost" [(ngModel)]="magazineCost.cost">
+      </div>
+    </div>
+  </div>
+</app-modal>

@@ -4,6 +4,8 @@ import { DashboardComponent } from "./views/dashboard/dashboard.component";
 import {MagazineCrudComponent} from "./views/magazines/magazine-crud/magazine-crud.component";
 import {MagazineListComponent} from "./views/magazines/magazine-list/magazine-list.component";
 import {MagazineCostComponent} from "./views/magazines/magazine-cost/magazine-cost.component";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptorService} from "../services/other/interceptor/auth-interceptor.service";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },

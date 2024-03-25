@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { IconComponent } from './components/icon/icon.component';
 import { ActionComponent } from './components/action/action.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -14,6 +15,7 @@ import { ActionComponent } from './components/action/action.component';
     NavbarComponent,
     IconComponent,
     ActionComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { ActionComponent } from './components/action/action.component';
     NavbarComponent,
     IconComponent,
     ActionComponent,
+    ModalComponent,
   ]
 })
 export class HubCommonsModule { }

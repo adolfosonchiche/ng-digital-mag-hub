@@ -22,6 +22,7 @@ export class NewMagazineDto {
 }
 
 export class MagazineDto {
+  public magazineId:number;
   public name:string;
   public description:string;
   public catCategory:CategoryDto;
@@ -30,6 +31,12 @@ export class MagazineDto {
   public entryDate:string;
   public catStatus:CategoryDto;
   public author:UserDto;
+}
+
+export class UpdateCostMagazineDto{
+  public magazineId:number;
+  public name:string;
+  public cost:number;
 }
 
 
