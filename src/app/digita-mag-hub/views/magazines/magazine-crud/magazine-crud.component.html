@@ -27,7 +27,25 @@
         <label for="file" class="form-label">Archivo PDF</label>
         <input type="file" class="form-control" id="file" name="file" (change)="loadFile($event)" accept="application/pdf">
       </div>
-      <button class="btn btn-primary" (click)="save()" [disabled]="!fileLoaded">Guardar</button>
+      <div class="mb-3">
+        <label for="cover" class="form-label">Imágen de portada</label>
+        <input type="file" class="form-control" id="cover" name="cover" (change)="loadCover($event)" accept="image/*">
+      </div>
+      <div class="mb-3">
+        <label for="subscription-cost" class="form-label">Costo de suscripción</label>
+        <div class="row d-flex align-items-center">
+          <div class="col-2">
+            <div class="d-flex flex-column align-items-end">
+              <label class="form-label">Q.</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <input type="number" class="form-control" id="subscription-cost" name="subscription-cost" [(ngModel)]="newMagazine.subscriptionCost">
+          </div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="save()" [disabled]="!fileLoaded || !coverLoaded">Guardar</button>
     </form>
   </div>
   <div class="col-3"></div>

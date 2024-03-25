@@ -28,7 +28,6 @@ export class MagazineService {
     params.forEach((value, key, map) => {
       if (value && key) httpParams = httpParams.set(key, value);
     });
-    console.log(httpParams)
     return this.http.get<MagazineDto[]>(`${baseUrl}`, {params: httpParams});
   }
 

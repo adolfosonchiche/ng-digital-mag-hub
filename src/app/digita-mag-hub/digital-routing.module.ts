@@ -4,8 +4,7 @@ import { DashboardComponent } from "./views/dashboard/dashboard.component";
 import {MagazineCrudComponent} from "./views/magazines/magazine-crud/magazine-crud.component";
 import {MagazineListComponent} from "./views/magazines/magazine-list/magazine-list.component";
 import {MagazineCostComponent} from "./views/magazines/magazine-cost/magazine-cost.component";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {AuthInterceptorService} from "../services/other/interceptor/auth-interceptor.service";
+import {MagazineSearchComponent} from "./views/magazines/magazine-search/magazine-search.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -15,6 +14,7 @@ const routes: Routes = [
         { path: '', component: MagazineListComponent },
         { path: 'create', component: MagazineCrudComponent },
         { path: 'cost', component: MagazineCostComponent },
+        { path: 'search', component: MagazineSearchComponent },
       ]
     }
   ];

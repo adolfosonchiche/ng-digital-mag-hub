@@ -1,0 +1,60 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Revistas</h1>
+      <p class="lead text-muted">Explora, inspira y sumérgete en el mundo fascinante de las revistas digitales.
+        ¡Comienza tu búsqueda ahora y deja que la lectura digital te envuelva!.</p>
+      <div class="mb-3 row d-flex align-items-center">
+        <div class="col-1">
+          <app-icon name="search"></app-icon>
+        </div>
+        <div class="col-11">
+          <input type="text" class="form-control" id="text-filter" name="text-filter" [(ngModel)]="textFilter"
+                 placeholder="Escribe para buscar" (keyup)="onKeyUp()">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <label for="category" class="form-label">Filtrar por categoría</label>
+          <ng-select id="category" name="category" [(ngModel)]="categories" [items]="magazineCategories"
+                     bindLabel="value2" [clearable]="true" [multiple]="true" (ngModelChange)="onKeyUp()"
+          ></ng-select>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <ng-container *ngFor="let magazine of magazines">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="d-flex flex-column align-items-center bg-secondary">
+              <img [src]="'data:image/jpg;base64,'+magazine.cover" alt="Fail load img" width="140" height="225">
+            </div>
+            <div class="card-body">
+              <h5 class="mb-1">{{magazine.name}}</h5>
+              <small class="text-muted">{{magazine.author.fullName}}</small>
+              <p class="card-text mt-3">{{magazine.description}}</p>
+              <div class="d-inline-flex">
+                <h6 class="text-success">Q. {{magazine.subscriptionCost}}</h6>
+                <h6 class="text-success mx-3 text-decoration-line-through">Q. {{magazine.subscriptionCost + (magazine.subscriptionCost * 0.25)}}</h6>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-primary">Previsualizar</button>
+                  <button type="button" class="btn btn-sm btn-outline-success">Suscribirme</button>
+                </div>
+                <small class="text-muted">{{magazine.entryDate}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

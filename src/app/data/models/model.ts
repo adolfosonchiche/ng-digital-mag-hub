@@ -19,6 +19,8 @@ export class NewMagazineDto {
   public catCategory:CategoryDto;
   public file:string;
   public entryDate:string;
+  public subscriptionCost:number;
+  public cover:string;
 }
 
 export class MagazineDto {
@@ -27,11 +29,13 @@ export class MagazineDto {
   public description:string;
   public catCategory:CategoryDto;
   public userId:number;
-  public file:any;
+  public file:string;
   public entryDate:string;
   public catStatus:CategoryDto;
   public author:UserDto;
   public costPerDay:number;
+  public subscriptionCost:number;
+  public cover:string;
 }
 
 export class UpdateCostMagazineDto{

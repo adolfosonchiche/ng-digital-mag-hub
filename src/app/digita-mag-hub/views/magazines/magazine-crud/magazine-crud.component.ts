@@ -17,6 +17,7 @@ export class MagazineCrudComponent implements OnInit{
   magazineCategories:CategoryDto[];
   newMagazine:NewMagazineDto;
   fileLoaded:boolean = false;
+  coverLoaded:boolean = false;
   resource:SafeResourceUrl;
 
   constructor(
@@ -63,6 +64,20 @@ export class MagazineCrudComponent implements OnInit{
       if (base64) {
         this.newMagazine.file = base64 + '';
         this.fileLoaded = true;
+      }
+    }
+  }
+
+  loadCover(event:any){
+    this.coverLoaded = false;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      let base64 = reader.result;
+      if (base64) {
+        this.newMagazine.cover = base64 + '';
+        this.coverLoaded = true;
       }
     }
   }

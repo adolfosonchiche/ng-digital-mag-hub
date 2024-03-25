@@ -9,6 +9,7 @@ import { MagazineListComponent } from './views/magazines/magazine-list/magazine-
 import { MagazineCostComponent } from './views/magazines/magazine-cost/magazine-cost.component';
 import {HubCommonsModule} from "../nab-commons/hub-commons.module";
 import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
+import { MagazineSearchComponent } from './views/magazines/magazine-search/magazine-search.component';
 
 
 
@@ -17,7 +18,8 @@ import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
     DashboardComponent,
     MagazineCrudComponent,
     MagazineListComponent,
-    MagazineCostComponent
+    MagazineCostComponent,
+    MagazineSearchComponent
   ],
   imports: [
     CommonModule,
