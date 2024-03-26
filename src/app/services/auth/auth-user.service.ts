@@ -33,4 +33,8 @@ export class AuthUsersService {
         }
         return this.http.post<any>(`${baseUrl}/sign-up`, user);
     }
+
+    ping() : Observable<any>{
+        return this.http.get<any>(`${baseUrl}/check-status`, { observe: "body" });
+    }
 }

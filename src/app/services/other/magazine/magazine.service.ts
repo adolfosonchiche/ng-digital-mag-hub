@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {MagazineDto, NewMagazineDto, UpdateCostMagazineDto} from "../../../data/models/model";
+import {MagazineDto, MagazineReactionStatusDto, NewMagazineDto, UpdateCostMagazineDto} from "../../../data/models/model";
 import {environment} from "../../../../environments/environment";
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/magazines';
@@ -37,6 +37,10 @@ export class MagazineService {
 
   updateCostAndPublish(dto:UpdateCostMagazineDto):Observable<MagazineDto>{
     return this.http.put<MagazineDto>(`${baseUrl}/update-cost-and-publish`, dto);
+  }
+
+  changeReactionStatus(dto: MagazineReactionStatusDto):Observable<boolean> {
+    return this.http.put<boolean>(`${baseUrl}/change-reaction-state`, dto);
   }
 
 }

@@ -19,6 +19,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.layoutControlService.showsNavbar
       .subscribe(show => this.showNavbar = show);
+
+    this.currentUser.ping().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        console.log('bienvenido!!');
+      }
+    });
   }
 
 }

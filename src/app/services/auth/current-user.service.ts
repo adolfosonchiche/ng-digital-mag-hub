@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { ToasterEnum } from "src/global/toaster-enum";
 import jwt_decode from 'jwt-decode';
 import { User, UserDto } from 'src/app/data/models/model';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
 import { UsersService } from '../other/amd-user/user.service';
+import { AuthUsersService } from './auth-user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,7 @@ export class CurrentUserService {
     private router: Router,
     private toaster: ToasterService,
     private userService: UsersService,
+    private authUserService: AuthUsersService,
     private layoutControlService: LayoutControlService
   ) {
     this.logoutMultiCall();
@@ -54,6 +56,20 @@ export class CurrentUserService {
     }
     return false;
   }
+
+  ping(): Observable<boolean> {
+    return this.authUserService.ping().pipe(
+        map(_ => {
+            console.log('ping valido');
+            return true;
+        }),
+        catchError(error => {
+            console.log(error);
+            localStorage.clear();
+            return of(false);
+        })
+    );
+}
 
   logoutMultiCall() {
     this.preventMultiCalls$.pipe(
@@ -98,6 +114,7 @@ export class CurrentUserService {
   }
 
   logoutWithError() {
+    console.log('error')
     this.toaster.show({ message: "Error en el servidor, intente mas tarde", header: "Error ", type: ToasterEnum.ERROR });
     this.logout();
   }

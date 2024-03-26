@@ -36,12 +36,22 @@ export class MagazineDto {
   public costPerDay:number;
   public subscriptionCost:number;
   public cover:string;
+  public catReactionStatus!: CategoryDto;
 }
 
 export class UpdateCostMagazineDto{
   public magazineId:number;
   public name:string;
   public cost:number;
+}
+
+export class MagazineReactionStatusDto {
+    public magazineId:number;
+    public status:number;
+    constructor(magazineId, status) {
+        this.magazineId = magazineId;
+        this.status = status;
+    }
 }
 
 
