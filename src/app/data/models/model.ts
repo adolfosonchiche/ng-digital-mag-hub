@@ -32,12 +32,22 @@ export class MagazineDto {
   public catStatus:CategoryDto;
   public author:UserDto;
   public costPerDay:number;
+  public catReactionStatus!: CategoryDto;
 }
 
 export class UpdateCostMagazineDto{
   public magazineId:number;
   public name:string;
   public cost:number;
+}
+
+export class MagazineReactionStatusDto {
+    public magazineId:number;
+    public status:number;
+    constructor(magazineId, status) {
+        this.magazineId = magazineId;
+        this.status = status;
+    }
 }
 
 
