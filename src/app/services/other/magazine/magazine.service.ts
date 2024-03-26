@@ -43,4 +43,8 @@ export class MagazineService {
     return this.http.put<boolean>(`${baseUrl}/change-reaction-state`, dto);
   }
 
+  changeSubscriptionStatus(dto: MagazineReactionStatusDto):Observable<boolean> {
+    return this.http.put<boolean>(`${baseUrl}/change-subscription-state`, dto);
+  }
+
 }

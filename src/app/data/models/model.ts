@@ -37,6 +37,7 @@ export class MagazineDto {
   public subscriptionCost:number;
   public cover:string;
   public catReactionStatus!: CategoryDto;
+  public catSubscriptionStatus!: CategoryDto;
 }
 
 export class UpdateCostMagazineDto{

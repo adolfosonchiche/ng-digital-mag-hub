@@ -38,6 +38,28 @@ export class MagazineListComponent implements OnInit{
     this.magazineService.changeReactionStatus(request).subscribe({
         next: () => {
             this.getAll();
+            this.toasterService.showSuccess(newStatus == this.categoryEnums.ACTIVE
+              ? 'Se desbloqueo las reacciones, exitosamente!'
+              : 'Se bloqueo las reacciones, exitosamente!'
+              );
+        },
+        error: (err) => {
+            console.log(err);
+            this.toasterService.showError("No se puede bloquear las interacciones, intente más tarde");
+        }
+    });
+  }
+
+  subscriptionOrUnsubscription(magazineSelected: MagazineDto) {
+    const newStatus = (magazineSelected.catSubscriptionStatus.categoryId == this.categoryEnums.ACTIVE) ? this.categoryEnums.BLOCKED : this.categoryEnums.ACTIVE
+    const request = new MagazineReactionStatusDto(magazineSelected.magazineId, newStatus);
+    this.magazineService.changeSubscriptionStatus(request).subscribe({
+        next: () => {
+            this.getAll();
+            this.toasterService.showSuccess(newStatus == this.categoryEnums.ACTIVE
+              ? 'Se desbloqueo las suscripciones, exitosamente!'
+              : 'Se bloqueo las suscripciones, exitosamente!'
+              );
         },
         error: (err) => {
             console.log(err);

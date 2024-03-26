@@ -18,6 +18,7 @@
           <th class="th-entry-date" scope="col">Fecha y hora de ingreso</th>
           <th class="th-status" scope="col">Estado</th>
           <th class="th-status" scope="col">Reacciones</th>
+          <th class="th-status" scope="col">Suscripciones</th>
         </tr>
         </thead>
         <tbody>
@@ -30,15 +31,15 @@
               <td>{{magazine.entryDate}}</td>
               <td>{{magazine.catStatus.value2}}</td>
               <td>
-                <button class="btn btn-sm btn-outline-info" 
-                  *ngIf="magazine.catReactionStatus.categoryId == categoryEnums.ACTIVE"
+                <button class="btn btn-sm btn-outline-danger" 
                   (click)="blockedOrUnblocked(magazine)" >
-                  <i class="fas fa-unlock"></i>Bloquear
+                  {{(magazine.catReactionStatus.categoryId == categoryEnums.ACTIVE ? 'Bloquear' : 'Desbloquear')}}
                 </button>
-                <button class="btn btn-outline-info" 
-                  *ngIf="magazine.catReactionStatus.categoryId == categoryEnums.BLOCKED"
-                  (click)="blockedOrUnblocked(magazine)" >
-                  <i class="fas fa-lock" id="password"></i>Desbloquear
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-danger"
+                  (click)="subscriptionOrUnsubscription(magazine)" >
+                  {{(magazine.catSubscriptionStatus.categoryId == categoryEnums.ACTIVE ? 'Bloquear' : 'Desbloquear')}}
                 </button>
               </td>
             </tr>
