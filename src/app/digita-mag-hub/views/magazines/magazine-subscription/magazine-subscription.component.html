@@ -2,7 +2,7 @@
   <header class="pb-3 mb-4 border-bottom">
     <div class="d-flex align-items-center text-body-emphasis text-decoration-none text-primary">
       <app-icon name="card_membership" class="mx-3"></app-icon>
-      <span class="fs-4">Suscribirme</span>
+      <span class="fs-4">Suscripción</span>
     </div>
   </header>
 
@@ -14,6 +14,7 @@
           <p class="col-md-10 fs-4 text-secondary">{{magazine.description}}</p>
           <h6>Autor: {{magazine.author.fullName}}</h6>
           <h6>Categoría: {{magazine.catCategory.value2}}</h6>
+          <h6>Fecha de publicación: {{magazine.entryDate}}</h6>
           <h6 class="text-success">Costo mensual: Q. {{magazine.subscriptionCost}}</h6>
         </div>
         <div class="col-4 d-flex flex-column align-items-center">
