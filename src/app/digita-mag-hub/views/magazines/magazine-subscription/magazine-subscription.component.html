@@ -25,7 +25,10 @@
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 text-bg-primary rounded-3">
-        <h3>Mi billetera</h3>
+        <div class="d-inline-flex align-items-center">
+          <h3>Mi billetera</h3>
+          <app-icon name="wallet" class="m-2" [size]="40"></app-icon>
+        </div>
         <p class="fw-bold">Saldo disponible: Q. {{me.wallet}}</p>
         <button class="btn btn-outline-light" type="button">Recargar</button>
       </div>
@@ -40,7 +43,7 @@
         <ng-container *ngIf="subscribed">
           <div class="d-inline-flex align-items-center">
             <h2>Ya estás suscrito</h2>
-            <app-icon name="check_circle" class="m-2"></app-icon>
+            <app-icon name="check_circle" class="m-2" [size]="35"></app-icon>
           </div>
           <p>Disfruta del contenido de la revista, recuerda dejar tus comentarios y reacciones para mejorar la experiencia.</p>
         </ng-container>
