@@ -10,7 +10,7 @@ const baseUrl = environment.digitalMagHubUrl + '/v1/users';
 @Injectable({
     providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
 
     constructor(
         private http: HttpClient

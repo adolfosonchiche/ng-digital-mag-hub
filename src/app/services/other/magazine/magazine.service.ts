@@ -47,4 +47,8 @@ export class MagazineService {
     return this.http.put<boolean>(`${baseUrl}/change-subscription-state`, dto);
   }
 
+  findById(magazineId:number):Observable<MagazineDto>{
+    return this.http.get<MagazineDto>(`${baseUrl}/${magazineId}`)
+  }
+
 }

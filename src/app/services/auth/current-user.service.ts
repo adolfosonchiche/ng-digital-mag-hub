@@ -8,7 +8,7 @@ import jwt_decode from 'jwt-decode';
 import { User, UserDto } from 'src/app/data/models/model';
 import { ToasterService } from '../other/toaster/toaster.service';
 import { LayoutControlService } from 'src/app/nab-commons/services/layout-control.service';
-import { UsersService } from '../other/amd-user/user.service';
+import { UserService } from '../other/amd-user/user.service';
 import { AuthUsersService } from './auth-user.service';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class CurrentUserService {
   constructor(
     private router: Router,
     private toaster: ToasterService,
-    private userService: UsersService,
+    private userService: UserService,
     private authUserService: AuthUsersService,
     private layoutControlService: LayoutControlService
   ) {
@@ -93,7 +93,7 @@ export class CurrentUserService {
       this.userService.getMe().subscribe({
         next: (user) => {
           localStorage.setItem('profile', JSON.stringify(user));
-          this.userSubject.next(user);          
+          this.userSubject.next(user);
           this.toaster.showSuccess('Inicio de sesión Éxitoso');
           this.router.navigate(['/digital/dashboard'])
         }, error: () => {

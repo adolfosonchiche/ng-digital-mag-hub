@@ -34,7 +34,7 @@
         <div class="col">
           <div class="card shadow-sm">
             <div class="d-flex flex-column align-items-center bg-secondary">
-              <img [src]="'data:image/jpg;base64,'+magazine.cover" alt="Fail load img" width="140" height="225">
+              <img [src]="'data:image/jpg;base64,'+magazine.cover" alt="Fail load img" width="150" height="225">
             </div>
             <div class="card-body">
               <h5 class="mb-1">{{magazine.name}}</h5>
@@ -47,7 +47,7 @@
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-primary">Previsualizar</button>
-                  <button type="button" class="btn btn-sm btn-outline-success">Suscribirme</button>
+                  <button type="button" class="btn btn-sm btn-outline-success" (click)="goToSubscription(magazine.magazineId)">Suscribirme</button>
                 </div>
                 <small class="text-muted">{{magazine.entryDate}}</small>
               </div>

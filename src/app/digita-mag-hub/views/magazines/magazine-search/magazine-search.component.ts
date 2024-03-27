@@ -5,6 +5,7 @@ import {ToasterService} from "../../../../services/other/toaster/toaster.service
 import {CategoryEnum} from "../../../../../global/category-enum";
 import * as moment from 'moment';
 import {CategoryService} from "../../../../services/other/category/category.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-magazine-search',
@@ -25,6 +26,7 @@ export class MagazineSearchComponent implements OnInit {
     private magazineService:MagazineService,
     private toasterService:ToasterService,
     private categoryService:CategoryService,
+    private router:Router,
   ) {
   }
 
@@ -64,6 +66,10 @@ export class MagazineSearchComponent implements OnInit {
 
   private updateDates(){
     this.magazines.forEach(magazine => magazine.entryDate = moment(magazine.entryDate).locale('es').format('MMMM YYYY'));
+  }
+
+  goToSubscription(magazineId:number){
+    void this.router.navigate(['/digital/magazines/subscription/', magazineId]);
   }
 
 }

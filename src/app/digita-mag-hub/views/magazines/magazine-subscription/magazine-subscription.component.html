@@ -1,0 +1,61 @@
+<div class="container py-4">
+  <header class="pb-3 mb-4 border-bottom">
+    <div class="d-flex align-items-center text-body-emphasis text-decoration-none text-primary">
+      <app-icon name="card_membership" class="mx-3"></app-icon>
+      <span class="fs-4">Suscribirme</span>
+    </div>
+  </header>
+
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+      <div class="row">
+        <div class="col-8">
+          <h1 class="display-5 fw-bold">{{magazine.name}}</h1>
+          <p class="col-md-10 fs-4 text-secondary">{{magazine.description}}</p>
+          <h6>Autor: {{magazine.author.fullName}}</h6>
+          <h6>Categoría: {{magazine.catCategory.value2}}</h6>
+          <h6 class="text-success">Costo mensual: Q. {{magazine.subscriptionCost}}</h6>
+        </div>
+        <div class="col-4 d-flex flex-column align-items-center">
+          <img [src]="'data:image/jpg;base64,'+magazine.cover" alt="Fail load img" width="150" height="225">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <div class="h-100 p-5 text-bg-primary rounded-3">
+        <h3>Mi billetera</h3>
+        <p class="fw-bold">Saldo disponible: Q. {{me.wallet}}</p>
+        <button class="btn btn-outline-light" type="button">Recargar</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+        <ng-container *ngIf="!subscribed">
+          <h2>Suscribirme ahora</h2>
+          <p>Al suscribirse está aceptando los <a href="https://google.com" target="_blank">términos y condiciones</a> de pago.</p>
+          <button class="btn btn-outline-primary" type="button" (click)="confirmModal.open(undefined)">Suscribirme</button>
+        </ng-container>
+        <ng-container *ngIf="subscribed">
+          <div class="d-inline-flex align-items-center">
+            <h2>Ya estás suscrito</h2>
+            <app-icon name="check_circle" class="m-2"></app-icon>
+          </div>
+          <p>Disfruta del contenido de la revista, recuerda dejar tus comentarios y reacciones para mejorar la experiencia.</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-3 mt-4 text-body-secondary border-top">
+  </footer>
+</div>
+
+<app-modal #confirmModal title="Confirmar subscripción" btnText="Suscribirme" (confirmationAction)="subscribe()">
+  <div class="mb-3">
+    <label for="entryDate" class="form-label">Fecha y hora de suscripción</label>
+    <input type="datetime-local" class="form-control" id="entryDate" name="entryDate" [(ngModel)]="newSubscription.entryDate">
+  </div>
+</app-modal>

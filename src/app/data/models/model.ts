@@ -74,6 +74,7 @@ export class UserDto {
     public userId!: number;
     public fullName!:string;
     public email!: string;
+    public wallet:number;
 }
 
 
@@ -108,4 +109,9 @@ export class Token {
     constructor(
         public jwt: string
     ) { }
+}
+
+export class NewSubscriptionDto {
+  magazineId:number;
+  entryDate:string;
 }
