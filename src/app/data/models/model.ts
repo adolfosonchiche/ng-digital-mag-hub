@@ -115,3 +115,13 @@ export class NewSubscriptionDto {
   magazineId:number;
   entryDate:string;
 }
+
+export class NewMagazineRateDto {
+  magazineId:number;
+  rate:number;
+}
+
+export class MagazineRateDto {
+  magazineId:number;
+  rate:number;
+}

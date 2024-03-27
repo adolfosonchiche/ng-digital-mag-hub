@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
-import {MagazineDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
+import {MagazineDto, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../../services/other/amd-user/user.service";
-import {SubscriptionService} from "../../../../services/other/subscription.service";
+import {SubscriptionService} from "../../../../services/other/magazine/subscription.service";
+import {RateService} from "../../../../services/other/magazine/rate.service";
 
 @Component({
   selector: 'app-magazine-subscription',
@@ -18,7 +19,7 @@ export class MagazineSubscriptionComponent implements OnInit {
   me:UserDto;
   newSubscription:NewSubscriptionDto = new NewSubscriptionDto();
   subscribed:boolean = false;
-  rate:number = 0;
+  rate:number;
   rateText:string = "";
   rateIcon:string = "";
   rateTextMap:Map<number, string> = new Map<number, string>()
@@ -42,6 +43,7 @@ export class MagazineSubscriptionComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private userService:UserService,
     private subscriptionService:SubscriptionService,
+    private rateService:RateService,
   ) {
   }
 
@@ -56,7 +58,6 @@ export class MagazineSubscriptionComponent implements OnInit {
       error: _ => this.toasterService.showDefaultError()
     });
     this.updateSubscriptionStatus();
-    this.updateRate();
   }
 
   subscribe(){
@@ -72,14 +73,40 @@ export class MagazineSubscriptionComponent implements OnInit {
 
   updateSubscriptionStatus(){
     this.subscriptionService.subscribedTo(this.magazineId).subscribe({
-      next: (status) => this.subscribed = status,
+      next: (status) => {
+        this.subscribed = status;
+        this.updateRate();
+      },
       error: _ => this.toasterService.showDefaultError()
     });
   }
 
   updateRate(){
-    this.rateText = this.rateTextMap.get(this.rate);
-    this.rateIcon = this.rateIconMap.get(this.rate);
+    if (this.subscribed) {
+      this.rateService.find(this.magazineId).subscribe({
+        next: (dto) => {
+          this.rate = dto.rate
+          this.rateText = this.rateTextMap.get(this.rate);
+          this.rateIcon = this.rateIconMap.get(this.rate);
+        },
+        error: _ => this.rate = 0
+      });
+    } else {
+      this.rate = 0
+    }
+  }
+
+  onRateChange(){
+    let newRate = new NewMagazineRateDto();
+    newRate.magazineId = this.magazineId;
+    newRate.rate = this.rate;
+    this.rateService.create(newRate).subscribe({
+      next: () => {
+        this.toasterService.showSuccess("Calificación actualizada", "Éxito");
+        this.updateRate();
+      },
+      error: _ => this.toasterService.showDefaultError()
+    });
   }
 
 }

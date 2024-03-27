@@ -47,26 +47,28 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5 d-flex flex-column align-items-center">
-    <div class="col-8 mt-5">
-      <div class="col-12 d-flex flex-column align-items-center">
-        <h4>Califica la revista</h4>
-      </div>
-      <div class="row d-flex flex-column align-items-center">
-        <div class="col-6">
-          <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" (change)="updateRate()" [(ngModel)]="rate">
+  <ng-container *ngIf="subscribed">
+    <div class="row mt-5 d-flex flex-column align-items-center">
+      <div class="col-8 mt-5">
+        <div class="col-12 d-flex flex-column align-items-center">
+          <h4>Califica la revista</h4>
         </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-12 d-inline-flex flex-column align-items-center">
-          <div class="d-inline-flex">
-            <label class="form-label mx-3">{{rateText}}</label>
-            <app-icon [name]="rateIcon"></app-icon>
+        <div class="row d-flex flex-column align-items-center">
+          <div class="col-6">
+            <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" (change)="onRateChange()" [(ngModel)]="rate">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 d-inline-flex flex-column align-items-center">
+            <div class="d-inline-flex">
+              <label class="form-label mx-3">{{rateText}}</label>
+              <app-icon [name]="rateIcon"></app-icon>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
   <footer class="pt-3 mt-4 text-body-secondary border-top"></footer>
 </div>
 
