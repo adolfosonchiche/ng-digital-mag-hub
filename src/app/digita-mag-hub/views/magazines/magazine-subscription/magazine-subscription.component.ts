@@ -18,6 +18,23 @@ export class MagazineSubscriptionComponent implements OnInit {
   me:UserDto;
   newSubscription:NewSubscriptionDto = new NewSubscriptionDto();
   subscribed:boolean = false;
+  rate:number = 0;
+  rateText:string = "";
+  rateIcon:string = "";
+  rateTextMap:Map<number, string> = new Map<number, string>()
+    .set(1, 'Muy malo')
+    .set(2, 'Malo')
+    .set(3, 'Regular')
+    .set(4, 'Bueno')
+    .set(5, 'Muy bueno')
+  ;
+  rateIconMap:Map<number, string> = new Map<number, string>()
+    .set(1, 'keyboard_double_arrow_down')
+    .set(2, 'keyboard_arrow_down')
+    .set(3, 'equal')
+    .set(4, 'keyboard_arrow_up')
+    .set(5, 'keyboard_double_arrow_up')
+  ;
 
   constructor(
     private toasterService:ToasterService,
@@ -39,6 +56,7 @@ export class MagazineSubscriptionComponent implements OnInit {
       error: _ => this.toasterService.showDefaultError()
     });
     this.updateSubscriptionStatus();
+    this.updateRate();
   }
 
   subscribe(){
@@ -57,6 +75,11 @@ export class MagazineSubscriptionComponent implements OnInit {
       next: (status) => this.subscribed = status,
       error: _ => this.toasterService.showDefaultError()
     });
+  }
+
+  updateRate(){
+    this.rateText = this.rateTextMap.get(this.rate);
+    this.rateIcon = this.rateIconMap.get(this.rate);
   }
 
 }
