@@ -1,27 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {ActivatedRoute} from "@angular/router";
 import {MagazineViewDto} from "../../../../data/models/model";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-magazine-view',
   templateUrl: './magazine-view.component.html',
   styleUrls: ['./magazine-view.component.scss']
 })
-export class MagazineViewComponent implements OnInit {
+export class MagazineViewComponent implements OnInit, OnDestroy {
 
   magazineId:number;
   magazineView:MagazineViewDto;
-  resource:SafeResourceUrl;
   blobUrl:string;
 
   constructor(
     private magazineService:MagazineService,
     private toasterService:ToasterService,
     private activatedRoute:ActivatedRoute,
-    private sanitizer:DomSanitizer,
   ) {
   }
 
@@ -36,16 +33,17 @@ export class MagazineViewComponent implements OnInit {
     });
   }
 
-  loadFile(){
-    const pdfSrc = 'data:application/pdf;base64,' + this.magazineView.file;
-    this.resource = this.sanitizer.bypassSecurityTrustResourceUrl(pdfSrc);
-    const pdfBlob = this.base64toBlob(this.magazineView.file, 'application/pdf');
-    const blobUrl = URL.createObjectURL(pdfBlob);
-    const newTab = window.open(blobUrl, '_blank');
-    this.blobUrl = blobUrl;
+  ngOnDestroy(): void {
+    URL.revokeObjectURL(this.blobUrl);
   }
 
-  base64toBlob(base64Data, contentType) {
+  loadFile(){
+    const pdfBlob = this.base64toBlob(this.magazineView.file, 'application/pdf');
+    this.blobUrl = URL.createObjectURL(pdfBlob);
+    (document.getElementById('pdfCard') as HTMLEmbedElement).src = this.blobUrl;
+  }
+
+  base64toBlob(base64Data:string, contentType:string) {
     const byteCharacters = atob(base64Data);
     const byteArrays = [];
     for (let offset = 0; offset < byteCharacters.length; offset += 512) {

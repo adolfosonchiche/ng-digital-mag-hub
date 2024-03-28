@@ -4,7 +4,6 @@ import {CategoryDto, NewMagazineDto} from "../../../../data/models/model";
 import {CategoryEnum} from "../../../../../global/category-enum";
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {Router} from "@angular/router";
 
 @Component({
@@ -18,13 +17,11 @@ export class MagazineCrudComponent implements OnInit{
   newMagazine:NewMagazineDto;
   fileLoaded:boolean = false;
   coverLoaded:boolean = false;
-  resource:SafeResourceUrl;
 
   constructor(
     private categoryService:CategoryService,
     private toasterService:ToasterService,
     private magazineService:MagazineService,
-    private sanitizer:DomSanitizer,
     private router:Router,
   ) {
   }
@@ -46,13 +43,10 @@ export class MagazineCrudComponent implements OnInit{
     this.magazineService.create(this.newMagazine).subscribe({
       next: (magazine) => {
         this.toasterService.showSuccess("Revista creada", "Success");
-        //const pdfSrc = 'data:application/pdf;base64,' + magazine.file;
-        //this.resource = this.sanitizer.bypassSecurityTrustResourceUrl(pdfSrc);
         void this.router.navigate(["/digital/magazines"])
       }, error: _  => this.toasterService.showDefaultError()
     })
   }
-
 
   loadFile(event:any){
     this.fileLoaded = false;
