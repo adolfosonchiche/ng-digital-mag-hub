@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
 import {MagazineDto, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../services/other/amd-user/user.service";
 import {SubscriptionService} from "../../../../services/other/magazine/subscription.service";
 import {RateService} from "../../../../services/other/magazine/rate.service";
@@ -44,6 +44,7 @@ export class MagazineSubscriptionComponent implements OnInit {
     private userService:UserService,
     private subscriptionService:SubscriptionService,
     private rateService:RateService,
+    private router:Router,
   ) {
   }
 
@@ -107,6 +108,10 @@ export class MagazineSubscriptionComponent implements OnInit {
       },
       error: _ => this.toasterService.showDefaultError()
     });
+  }
+
+  goToViewMagazine(){
+    void this.router.navigate(['/digital/magazines/subscription/' + this.magazineId + '/view'])
   }
 
 }

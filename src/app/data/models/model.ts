@@ -29,7 +29,6 @@ export class MagazineDto {
   public description:string;
   public catCategory:CategoryDto;
   public userId:number;
-  public file:string;
   public entryDate:string;
   public catStatus:CategoryDto;
   public author:UserDto;
@@ -124,4 +123,9 @@ export class NewMagazineRateDto {
 export class MagazineRateDto {
   magazineId:number;
   rate:number;
+}
+
+export class MagazineViewDto {
+  public magazineId:number;
+  public file:string;
 }

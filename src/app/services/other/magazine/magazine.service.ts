@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {MagazineDto, MagazineReactionStatusDto, NewMagazineDto, UpdateCostMagazineDto} from "../../../data/models/model";
+import {
+  MagazineDto,
+  MagazineReactionStatusDto,
+  MagazineViewDto,
+  NewMagazineDto,
+  UpdateCostMagazineDto
+} from "../../../data/models/model";
 import {environment} from "../../../../environments/environment";
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/magazines';
@@ -49,6 +55,10 @@ export class MagazineService {
 
   findById(magazineId:number):Observable<MagazineDto>{
     return this.http.get<MagazineDto>(`${baseUrl}/${magazineId}`)
+  }
+
+  findViewById(magazineId:number):Observable<MagazineViewDto>{
+    return this.http.get<MagazineViewDto>(`${baseUrl}/view/${magazineId}`)
   }
 
 }

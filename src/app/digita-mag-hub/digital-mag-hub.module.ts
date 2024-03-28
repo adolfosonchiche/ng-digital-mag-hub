@@ -11,6 +11,7 @@ import {HubCommonsModule} from "../nab-commons/hub-commons.module";
 import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
 import { MagazineSearchComponent } from './views/magazines/magazine-search/magazine-search.component';
 import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscription/magazine-subscription.component';
+import { MagazineViewComponent } from './views/magazines/magazine-view/magazine-view.component';
 
 
 
@@ -21,7 +22,8 @@ import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscr
     MagazineListComponent,
     MagazineCostComponent,
     MagazineSearchComponent,
-    MagazineSubscriptionComponent
+    MagazineSubscriptionComponent,
+    MagazineViewComponent
   ],
   imports: [
     CommonModule,
