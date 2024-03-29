@@ -74,6 +74,24 @@ export class UserDto {
     public fullName!:string;
     public email!: string;
     public wallet:number;
+    public firstName:string;
+    public middleName:string;
+    public lastName:string;
+    public birthday:string;
+    public description:string;
+    public profilePhoto:string;
+}
+
+export class NewUserDto {
+  public firstName:string;
+  public middleName:string;
+  public lastName:string;
+  public birthday:string;
+  public password:string;
+  public email:string;
+  public roles: Role[] = [];
+  public description:string;
+  public profilePhoto:string;
 }
 
 

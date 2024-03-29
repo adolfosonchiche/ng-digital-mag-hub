@@ -12,6 +12,7 @@ import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
 import { MagazineSearchComponent } from './views/magazines/magazine-search/magazine-search.component';
 import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscription/magazine-subscription.component';
 import { MagazineViewComponent } from './views/magazines/magazine-view/magazine-view.component';
+import { UserCrudComponent } from './views/users/user-crud/user-crud.component';
 
 
 
@@ -23,7 +24,8 @@ import { MagazineViewComponent } from './views/magazines/magazine-view/magazine-
     MagazineCostComponent,
     MagazineSearchComponent,
     MagazineSubscriptionComponent,
-    MagazineViewComponent
+    MagazineViewComponent,
+    UserCrudComponent
   ],
   imports: [
     CommonModule,

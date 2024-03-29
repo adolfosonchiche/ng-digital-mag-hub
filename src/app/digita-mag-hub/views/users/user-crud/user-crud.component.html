@@ -1,0 +1,52 @@
+<div class="row px-5 py-5">
+  <div class="col-12 d-flex flex-column align-items-center mb-4">
+    <h2>Mi perfil</h2>
+  </div>
+  <div class="col-xl-4">
+    <div class="card mb-4 mb-xl-0">
+      <div class="card-header">Foto de perfil</div>
+      <div class="card-body text-center">
+        <img class="img-account-profile rounded-circle mb-2" [src]="newUserDto.profilePhoto ?? 'assets/icon/user.png'" width="240px" alt="">
+        <div class="small font-italic text-muted mb-4">Archivo JPG o PNG</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-8">
+    <div class="card mb-4">
+      <div class="card-header">Detalles de la cuenta</div>
+      <div class="card-body">
+        <form>
+          <div class="row gx-3 mb-3">
+            <div class="col-md-6">
+              <label class="small mb-1" for="inputFirstName">Primer nombre</label>
+              <input class="form-control" id="inputFirstName" name="=inputFirstName" type="text" placeholder="Ingresa tu primer nombre" [(ngModel)]="newUserDto.firstName">
+            </div>
+            <div class="col-md-6">
+              <label class="small mb-1" for="inputMiddleName">Segundo nombre</label>
+              <input class="form-control" id="inputMiddleName" name="inputMiddleName" type="text" placeholder="Ingresa tu segundo nombre" [(ngModel)]="newUserDto.middleName">
+            </div>
+          </div>
+          <div class="row gx-3 mb-3">
+            <div class="col-md-6">
+              <label class="small mb-1" for="inputLastName">Apellido</label>
+              <input class="form-control" id="inputLastName" name="inputLastName" type="text" placeholder="Ingresa tu apellido" [(ngModel)]="newUserDto.lastName">
+            </div>
+            <div class="col-md-6">
+              <label class="small mb-1" for="inputBirthday">Birthday</label>
+              <input class="form-control" id="inputBirthday" type="date" name="birthday" placeholder="Enter your birthday" [(ngModel)]="newUserDto.birthday">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="small mb-1" for="description">Descripción del perfil</label>
+            <textarea class="form-control" id="description" name="description" rows="3" maxlength="699" [(ngModel)]="newUserDto.description"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="small mb-1" for="description">Cargar nueva foto</label>
+            <input type="file" class="form-control" id="cover" name="cover" (change)="loadFile($event)" accept="image/*">
+          </div>
+          <button class="btn btn-primary" type="button" [disabled]="!photoLoaded" (click)="save()">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

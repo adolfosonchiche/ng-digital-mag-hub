@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from 'src/app/services/auth/current-user.service';
 import { UserDto } from 'src/app/data/models/model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent implements OnInit {
   sumaryRole = '';
   constructor(
     private currentUserService: CurrentUserService,
+    private router:Router,
   ) {}
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class NavbarComponent implements OnInit {
           this.currentUser = new UserDto();
           this.currentUser.fullName = "Usuario no encontrado"
         }
-    
+
         const role = this.currentUserService.getMyRole();
         if(role) {
           const roles = role.split(',');
@@ -43,6 +45,10 @@ export class NavbarComponent implements OnInit {
         }
       }
     );
-    
   }
+
+  goToProfile(){
+    void this.router.navigate(['/digital/users/me']);
+  }
+
 }

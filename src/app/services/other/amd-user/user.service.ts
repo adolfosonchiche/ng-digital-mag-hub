@@ -2,7 +2,7 @@ import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators'
-import { User, UserDto } from 'src/app/data/models/model';
+import {NewUserDto, User, UserDto} from 'src/app/data/models/model';
 import { environment } from 'src/environments/environment';
 
 const baseUrl = environment.digitalMagHubUrl + '/v1/users';
@@ -20,6 +20,8 @@ export class UserService {
         return this.http.get<UserDto>(`${baseUrl}/me`);
     }
 
-
+    update(dto:NewUserDto, userId:number):Observable<UserDto>{
+      return this.http.put<UserDto>(`${baseUrl}/${userId}`, dto);
+    }
 
 }

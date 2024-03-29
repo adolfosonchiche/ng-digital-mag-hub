@@ -39,12 +39,12 @@
               </span>
 
             </div>
-            <img class="profile-image ml-3" src="assets/icon/user.png" width="40px"/>
+            <img class="profile-image ml-3" [src]="currentUser.profilePhoto ?? 'assets/icon/user.png'" width="40px"/>
           </div>
 
           <ul class="dropdown-menu dropdow-menu-rigth"
           aria-labelledby="navbarUserDropdown">
-            <li><a class="dropdown-item small" routerLink="/routePath">Perfil</a></li>
+            <li><button class="dropdown-item small" (click)="goToProfile()">Perfil</button></li>
             <li>
               <hr class="dropdown-divider">
             </li>
