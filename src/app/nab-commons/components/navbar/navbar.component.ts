@@ -51,4 +51,8 @@ export class NavbarComponent implements OnInit {
     void this.router.navigate(['/digital/users/me']);
   }
 
+  logout(){
+    this.currentUserService.logout();
+  }
+
 }
