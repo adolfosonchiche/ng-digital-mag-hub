@@ -13,6 +13,10 @@ import { MagazineSearchComponent } from './views/magazines/magazine-search/magaz
 import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscription/magazine-subscription.component';
 import { MagazineViewComponent } from './views/magazines/magazine-view/magazine-view.component';
 import { UserCrudComponent } from './views/users/user-crud/user-crud.component';
+import { MagazinePreviewComponent } from './views/magazines/magazine-preview/magazine-preview.component';
+import { ModalMagazinePreviewComponent } from './modals/modal-magazine-preview/modal-magazine-preview.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 
 
 
@@ -25,7 +29,9 @@ import { UserCrudComponent } from './views/users/user-crud/user-crud.component';
     MagazineSearchComponent,
     MagazineSubscriptionComponent,
     MagazineViewComponent,
-    UserCrudComponent
+    UserCrudComponent,
+    ModalMagazinePreviewComponent,
+    MagazinePreviewComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +40,7 @@ import { UserCrudComponent } from './views/users/user-crud/user-crud.component';
     FormsModule,
     HubCommonsModule,
     NgbDropdownItem,
+    NgxExtendedPdfViewerModule
   ]
 })
 export class DigitalMagHubModule { }

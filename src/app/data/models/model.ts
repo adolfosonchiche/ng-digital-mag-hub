@@ -35,6 +35,7 @@ export class MagazineDto {
   public costPerDay:number;
   public subscriptionCost:number;
   public cover:string;
+  public file: string;
   public catReactionStatus!: CategoryDto;
   public catSubscriptionStatus!: CategoryDto;
 }

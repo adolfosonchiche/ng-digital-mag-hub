@@ -50,6 +50,7 @@ export class MagazineSearchComponent implements OnInit {
   findAll(){
     this.magazineService.findByQuery(this.params).subscribe({
       next: (magazines) => {
+        console.log(magazines)
         this.magazines = magazines ?? [];
         this.updateDates();
       }, error: _ => this.toasterService.showDefaultError()
