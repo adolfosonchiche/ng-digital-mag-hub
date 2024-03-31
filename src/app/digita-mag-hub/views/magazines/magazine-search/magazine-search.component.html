@@ -46,7 +46,9 @@
               </div>
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-primary">Previsualizar</button>
+                  <button type="button" class="btn btn-sm btn-outline-primary"
+                    (click)="modalMagazinePreview.openModal(magazine)" >Previsualizar
+                  </button>
                   <button type="button" class="btn btn-sm btn-outline-success" (click)="goToSubscription(magazine.magazineId)">Ver</button>
                 </div>
                 <small class="text-muted">{{magazine.entryDate}}</small>
@@ -58,3 +60,9 @@
     </div>
   </div>
 </div>
+
+
+<app-modal-magazine-preview
+  #modalMagazinePreview
+>
+</app-modal-magazine-preview>

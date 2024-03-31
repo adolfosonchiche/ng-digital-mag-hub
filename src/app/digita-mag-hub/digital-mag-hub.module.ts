@@ -11,6 +11,9 @@ import {HubCommonsModule} from "../nab-commons/hub-commons.module";
 import {NgbDropdownItem} from "@ng-bootstrap/ng-bootstrap";
 import { MagazineSearchComponent } from './views/magazines/magazine-search/magazine-search.component';
 import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscription/magazine-subscription.component';
+import { ModalMagazinePreviewComponent } from './modals/modal-magazine-preview/modal-magazine-preview.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { MagazinePreviewComponent } from './views/magazines/magazine-preview/magazine-preview.component';
 
 
 
@@ -21,7 +24,9 @@ import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscr
     MagazineListComponent,
     MagazineCostComponent,
     MagazineSearchComponent,
-    MagazineSubscriptionComponent
+    MagazineSubscriptionComponent,
+    ModalMagazinePreviewComponent,
+    MagazinePreviewComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,7 @@ import { MagazineSubscriptionComponent } from './views/magazines/magazine-subscr
     FormsModule,
     HubCommonsModule,
     NgbDropdownItem,
+    NgxExtendedPdfViewerModule
   ]
 })
 export class DigitalMagHubModule { }
