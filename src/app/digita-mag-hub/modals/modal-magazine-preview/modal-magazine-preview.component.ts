@@ -23,9 +23,9 @@ export class ModalMagazinePreviewComponent extends ModalComponent {
 
 
   openModal(magazine: MagazineDto) {
-   this.magazineDto = magazine
-   this.pdfBase64 = magazine.file;
-   this.open(undefined)
+    this.magazineDto = magazine
+    this.pdfBase64 = magazine.file;
+    this.open(undefined)
   }
 
 }
