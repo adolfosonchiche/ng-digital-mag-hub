@@ -62,13 +62,19 @@ export class MagazineSubscriptionComponent implements OnInit {
   }
 
   subscribe(){
-    this.newSubscription.magazineId = this.magazineId;
-    this.subscriptionService.create(this.newSubscription).subscribe({
-      next: () => {
-        this.toasterService.showSuccess("Ahora estás suscrito a esta revista.", "Éxito");
-        this.updateSubscriptionStatus();
-      },
-      error: _ => this.toasterService.showError("Saldo insuficiente para realizar la operación", "Error")
+    this.checkAllIsValid().then((allIsValid) => {
+      if (allIsValid) {
+        this.newSubscription.magazineId = this.magazineId;
+        this.subscriptionService.create(this.newSubscription).subscribe({
+          next: () => {
+            this.toasterService.showSuccess("Ahora estás suscrito a esta revista.", "Éxito");
+            this.updateSubscriptionStatus();
+          },
+          error: _ => this.toasterService.showError("Saldo insuficiente para realizar la operación", "Error")
+        });
+      } else {
+        this.toasterService.showError("Complete todos los campos", "Error");
+      }
     });
   }
 
@@ -112,6 +118,14 @@ export class MagazineSubscriptionComponent implements OnInit {
 
   goToViewMagazine(){
     void this.router.navigate(['/digital/magazines/subscription/' + this.magazineId + '/view'])
+  }
+
+  checkAllIsValid():Promise<boolean>{
+    return new Promise<boolean>((resolve, reject) => {
+      resolve(
+        this.newSubscription.entryDate != undefined
+      );
+    });
   }
 
 }
