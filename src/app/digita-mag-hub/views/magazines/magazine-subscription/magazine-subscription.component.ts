@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
-import {MagazineDto, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
+import {MagazineDto, MagazineLikeDto, MagazineLikeRequest, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../services/other/amd-user/user.service";
 import {SubscriptionService} from "../../../../services/other/magazine/subscription.service";
 import {RateService} from "../../../../services/other/magazine/rate.service";
+import { MagazineLikeService } from 'src/app/services/other/magazine/magazine-like.service';
+import { CategoryEnum } from 'src/global/category-enum';
 
 @Component({
   selector: 'app-magazine-subscription',
@@ -36,6 +38,8 @@ export class MagazineSubscriptionComponent implements OnInit {
     .set(4, 'keyboard_arrow_up')
     .set(5, 'keyboard_double_arrow_up')
   ;
+  isLiked: boolean = false;
+  categoryEnums = CategoryEnum;
 
   constructor(
     private toasterService:ToasterService,
@@ -45,11 +49,13 @@ export class MagazineSubscriptionComponent implements OnInit {
     private subscriptionService:SubscriptionService,
     private rateService:RateService,
     private router:Router,
+    private magazineLikeService : MagazineLikeService,
   ) {
   }
 
   ngOnInit(): void {
     this.magazineId = Number(this.activatedRoute.snapshot.params['magazineId'] ?? 0);
+    this.getIsLike(this.magazineId)
     this.magazineService.findById(this.magazineId).subscribe({
       next: (dto) => this.magazine = dto,
       error: _ => this.toasterService.showDefaultError()
@@ -118,6 +124,44 @@ export class MagazineSubscriptionComponent implements OnInit {
 
   goToViewMagazine(){
     void this.router.navigate(['/digital/magazines/subscription/' + this.magazineId + '/view'])
+  }
+
+  downloadMagazine(){
+    const byteCharacters = atob(this.magazine.file);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/pdf' });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${this.magazine.name}.pdf`;
+
+    link.click();
+  }
+
+  magazineLike() {
+    let newLike = new MagazineLikeRequest();
+    newLike.magazineId = this.magazineId;
+    newLike.like = ! this.isLiked;
+    this.magazineLikeService.magazineLike(newLike).subscribe({
+      next: () => {
+        this.isLiked = ! this.isLiked;
+      }, error: err => this.toasterService.showDefaultError()
+    });
+  }
+
+  getIsLike(magazineId: number) {
+    let newLike = new MagazineLikeRequest();
+    newLike.magazineId = this.magazineId;
+    newLike.like = true;
+    this.magazineLikeService.isMagazineLike(magazineId).subscribe({
+      next: () => {
+        this.isLiked = true;
+      }, error: err => console.log(err)
+    });
   }
 
   checkAllIsValid():Promise<boolean>{

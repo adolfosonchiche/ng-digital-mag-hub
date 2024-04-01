@@ -1,0 +1,16 @@
+.pdf-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pdf-page {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pdf-page canvas {
+    border: 1px solid black;
+  }

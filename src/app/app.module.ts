@@ -12,6 +12,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { RegisterUserComponent } from './view/register-user/register-user.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AuthInterceptorService } from './services/other/interceptor/auth-interceptor.service';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 
@@ -29,9 +30,11 @@ import { AuthInterceptorService } from './services/other/interceptor/auth-interc
     HttpClientModule,
     HubCommonsModule,
     NgSelectModule,
+    NgxExtendedPdfViewerModule
   ],
   exports: [
-    NgSelectModule
+    NgSelectModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }

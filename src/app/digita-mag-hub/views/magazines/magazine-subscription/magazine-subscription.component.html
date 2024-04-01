@@ -47,6 +47,10 @@
           </div>
           <p>Disfruta del contenido de la revista, recuerda dejar tus comentarios y reacciones para mejorar la experiencia.</p>
           <button class="btn btn-outline-primary" type="button" (click)="goToViewMagazine()">Ver revista</button>
+          <button class="btn btn-outline-primary m-2" type="button" (click)="downloadMagazine()">Descargar</button>
+          <button *ngIf="magazine.catReactionStatus.categoryId == categoryEnums.ACTIVE"
+          [ngClass]="{'btn btn-outline-primary': !isLiked, 'btn-primary': isLiked, 'm-2': true}"
+          type="button" (click)="magazineLike()"><i class="fas fa-thumbs-up" ></i></button>
         </ng-container>
       </div>
     </div>

@@ -27,6 +27,7 @@ export class MagazineListComponent implements OnInit{
   getAll() {
     this.magazineService.findMyMagazines().subscribe({
       next: (magazines) => {
+        console.log(magazines)
         this.magazines = magazines ?? [];
       }, error: _ => this.toasterService.showDefaultError()
     });

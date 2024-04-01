@@ -35,6 +35,7 @@ export class MagazineDto {
   public costPerDay:number;
   public subscriptionCost:number;
   public cover:string;
+  public file: string;
   public catReactionStatus!: CategoryDto;
   public catSubscriptionStatus!: CategoryDto;
 }
@@ -146,4 +147,15 @@ export class MagazineRateDto {
 export class MagazineViewDto {
   public magazineId:number;
   public file:string;
+}
+
+export class MagazineLikeRequest {
+  public magazineId: number;
+  public like: boolean;
+}
+
+export class MagazineLikeDto {
+  public userId: number;
+  public magazineId: number;
+  public entryDate: string | Date;
 }

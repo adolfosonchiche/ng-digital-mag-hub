@@ -1,0 +1,39 @@
+<ng-template #content let-modal>
+  <button type="button" class="btn-close rigth" (click)="close()"></button>
+  <div class="modal-body">
+
+    <div class="px-3">
+      <h1 class="h4 fw-bold mt-2 mb-4">Vista previa de Revista</h1>
+    </div>
+    <section class="">
+        <h5 class="align-items-center display-4">{{magazineDto.name}}</h5>
+        <ngx-extended-pdf-viewer 
+        [base64Src]="pdfBase64"
+        pageViewMode="single"
+        showPagingButtons="always-in-secondary-menu"
+        showBookModeButton="always-in-secondary-menu"
+        showDrawEditor="always-in-secondary-menu"
+        [showSidebarButton]="false"
+        [showZoomButtons]="true"
+        [showSecondaryToolbarButton]="false"
+        [showPrintButton]="false"
+        [showOpenFileButton]="false"
+        [showDownloadButton]="false"
+        [showTextEditor]="false"
+        [showDownloadButton]="false"
+        [showStampEditor]="false"
+        showZoomButtons="always-visible"
+        useBrowserLocale="true"
+        [height]="'50vh'"
+        ></ngx-extended-pdf-viewer>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <div class="d-flex justify-content-between w-100">
+      <span> </span>
+      <button (click)="close()" class="btn btn-outline-primary">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</ng-template>
