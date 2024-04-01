@@ -1,0 +1,29 @@
+<ng-template #content let-modal>
+    <button type="button" class="btn-close rigth" (click)="close()"></button>
+    <div class="modal-body">
+  
+      <div class="px-3">
+        <h1 class="h4 fw-bold mt-2 mb-4">Comentar Revista: {{magazineDto.name}}</h1>
+      </div>
+      <section class="form-control">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Escriba aquí lo que piensas de la revista" 
+                id="comment" style="height: 150px"
+                [(ngModel)]="comment"
+            >
+            </textarea>
+            <label for="comment">Escriba aquí lo que piensas de la revista</label>
+          </div>
+      </section>
+    </div>
+    <div class="modal-footer">
+      <div class="d-flex justify-content-between w-100">
+        <button (click)="close()" class="btn btn-outline-primary">
+          Cerrar
+        </button>
+        <span> </span>
+        <button (click)="saveComment()" class="btn btn-outline-primary" 
+        [disabled]="comment.trim() == ''">Comentar</button>
+      </div>
+    </div>
+  </ng-template>

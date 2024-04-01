@@ -16,6 +16,7 @@ import { UserCrudComponent } from './views/users/user-crud/user-crud.component';
 import { MagazinePreviewComponent } from './views/magazines/magazine-preview/magazine-preview.component';
 import { ModalMagazinePreviewComponent } from './modals/modal-magazine-preview/modal-magazine-preview.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { ModalMagazineCommentComponent } from './modals/modal-magazine-comment/modal-magazine-comment.component';
 
 
 
@@ -31,7 +32,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     MagazineViewComponent,
     UserCrudComponent,
     ModalMagazinePreviewComponent,
-    MagazinePreviewComponent
+    MagazinePreviewComponent,
+    ModalMagazineCommentComponent
   ],
   imports: [
     CommonModule,

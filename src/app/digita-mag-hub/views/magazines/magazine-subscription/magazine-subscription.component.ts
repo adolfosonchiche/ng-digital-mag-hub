@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
 import {MagazineService} from "../../../../services/other/magazine/magazine.service";
-import {MagazineDto, MagazineLikeDto, MagazineLikeRequest, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
+import {MagazineCommentDto, MagazineDto, MagazineLikeDto, MagazineLikeRequest, NewMagazineRateDto, NewSubscriptionDto, UserDto} from "../../../../data/models/model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../services/other/amd-user/user.service";
 import {SubscriptionService} from "../../../../services/other/magazine/subscription.service";
 import {RateService} from "../../../../services/other/magazine/rate.service";
 import { MagazineLikeService } from 'src/app/services/other/magazine/magazine-like.service';
 import { CategoryEnum } from 'src/global/category-enum';
+import { MagazineCommentService } from 'src/app/services/other/magazine/magazine-comment.service';
 
 @Component({
   selector: 'app-magazine-subscription',
@@ -40,6 +41,7 @@ export class MagazineSubscriptionComponent implements OnInit {
   ;
   isLiked: boolean = false;
   categoryEnums = CategoryEnum;
+  commentsList : MagazineCommentDto[] = [];
 
   constructor(
     private toasterService:ToasterService,
@@ -50,12 +52,14 @@ export class MagazineSubscriptionComponent implements OnInit {
     private rateService:RateService,
     private router:Router,
     private magazineLikeService : MagazineLikeService,
+    private magazineCommentService: MagazineCommentService
   ) {
   }
 
   ngOnInit(): void {
     this.magazineId = Number(this.activatedRoute.snapshot.params['magazineId'] ?? 0);
-    this.getIsLike(this.magazineId)
+    this.getIsLike(this.magazineId);
+    this.getComments(this.magazineId);
     this.magazineService.findById(this.magazineId).subscribe({
       next: (dto) => this.magazine = dto,
       error: _ => this.toasterService.showDefaultError()
@@ -152,12 +156,20 @@ export class MagazineSubscriptionComponent implements OnInit {
   }
   
   getIsLike(magazineId: number) {
-    let newLike = new MagazineLikeRequest();
-    newLike.magazineId = this.magazineId;
-    newLike.like = true;
     this.magazineLikeService.isMagazineLike(magazineId).subscribe({
       next: () => {
         this.isLiked = true;
+      },
+      error: err => {
+        console.log(err)
+      }
+    });
+  }
+
+  getComments(magazineId: number) {
+    this.magazineCommentService.getMagazineCommentList(magazineId).subscribe({
+      next: (coments) => {
+        this.commentsList = coments;
       },
       error: err => {
         console.log(err)

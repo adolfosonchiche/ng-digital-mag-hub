@@ -159,3 +159,20 @@ export class MagazineLikeDto {
   public magazineId: number;
   public entryDate: string | Date;
 }
+
+export class MagazineCommentRequest {
+  public magazineId: number;
+  public comment: string;
+}
+
+export class MagazineCommentDto {
+  public userId: number;
+  public magazineId: number;
+  public entryDate: string | Date;
+  public comment: string;
+
+  //frontend
+  public userName: string;
+}
+
+
