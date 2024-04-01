@@ -40,12 +40,18 @@ export class MagazineCrudComponent implements OnInit{
   }
 
   save(){
-    this.magazineService.create(this.newMagazine).subscribe({
-      next: (magazine) => {
-        this.toasterService.showSuccess("Revista creada", "Success");
-        void this.router.navigate(["/digital/magazines"])
-      }, error: _  => this.toasterService.showDefaultError()
-    })
+    this.checkAllIsValid().then((allIsValid) => {
+      if (allIsValid) {
+        this.magazineService.create(this.newMagazine).subscribe({
+          next: (magazine) => {
+            this.toasterService.showSuccess("Revista creada", "Success");
+            void this.router.navigate(["/digital/magazines"])
+          }, error: _ => this.toasterService.showDefaultError()
+        });
+      } else {
+        this.toasterService.showError("Completa todos los campos.", "Error");
+      }
+    });
   }
 
   loadFile(event:any){
@@ -74,6 +80,23 @@ export class MagazineCrudComponent implements OnInit{
         this.coverLoaded = true;
       }
     }
+  }
+
+  checkAllIsValid():Promise<boolean>{
+    return new Promise<boolean>((resolve, reject) => {
+      resolve(
+        this.newMagazine.name &&
+        this.newMagazine.name.trim() != "" &&
+        this.newMagazine.description &&
+        this.newMagazine.description.trim() != "" &&
+        this.newMagazine.catCategory != undefined &&
+        this.newMagazine.entryDate != undefined &&
+        this.newMagazine.file != undefined &&
+        this.newMagazine.cover != undefined &&
+        this.newMagazine.subscriptionCost != undefined &&
+        this.newMagazine.subscriptionCost > 0
+      );
+    });
   }
 
 }
