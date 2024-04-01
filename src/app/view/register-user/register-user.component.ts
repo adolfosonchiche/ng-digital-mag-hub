@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Role, User } from 'src/app/data/models/model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -25,7 +24,6 @@ export class RegisterUserComponent implements OnInit {
     private authUserService: AuthUsersService,
     private authService: AuthService,
     private toaster: ToasterService,
-    private router: Router,
     private layoutControlService: LayoutControlService
   ) {
     this.layoutControlService.hideNavbar();
@@ -37,22 +35,18 @@ export class RegisterUserComponent implements OnInit {
   }
 
   register(): void {
-    if (this.isValid()) {
-      this.authUserService.save(this.user).subscribe({
-        next: (user) => {
-          this.toaster.showSuccess("Usuario Registrado");
-          this.authService.doLogin(user, { email: this.user.email, password: this.user.password });
-          //this.router.navigate(['/digital/dashboard'])
-        },
-        error: _ => {
-          this.toaster.showError("Error en el servidor, intente mas tarde");
-        }
-      });
-
-    } else {
-      this.toaster.showError('Debes de llenar todos los campos requeridos');
-    }
-
+    this.checkAllIsValid().then((allIsValid) => {
+      if (allIsValid) {
+        this.authUserService.save(this.user).subscribe({
+          next: (user) => {
+            this.toaster.showSuccess("Usuario Registrado");
+            this.authService.doLogin(user, { email: this.user.email, password: this.user.password });
+          }, error: _ => this.toaster.showError("Error en el servidor, intente mas tarde")
+        });
+      } else {
+        this.toaster.showError('Debes de llenar todos los campos requeridos');
+      }
+    });
   }
 
   isValid() {
@@ -67,7 +61,6 @@ export class RegisterUserComponent implements OnInit {
   changesInProgress($event: any) {
     this.userExist = false;
     this.user.email = $event;
-    //this.checkEmail();
   }
 
   private checkEmail() {
@@ -86,5 +79,19 @@ export class RegisterUserComponent implements OnInit {
     });
   }
 
+  private checkAllIsValid():Promise<boolean>{
+    return new Promise((resolve, reject) => {
+        resolve (
+          this.user.firstName && this.user.firstName.trim() != '' &&
+          this.user.lastName && this.user.lastName.trim() != '' &&
+          this.user.middleName && this.user.middleName.trim() != '' &&
+          this.user.password && this.user.password.trim() != '' &&
+          this.user.email && this.user.email.trim() != '' &&
+          this.user.birthday &&
+          this.user.roles.length > 0 &&
+          !this.userExist
+      );
+    });
+  }
 
 }
