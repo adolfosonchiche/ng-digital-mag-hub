@@ -148,3 +148,14 @@ export class MagazineViewDto {
   public magazineId:number;
   public file:string;
 }
+
+export class MagazineLikeRequest {
+  public magazineId: number;
+  public like: boolean;
+}
+
+export class MagazineLikeDto {
+  public userId: number;
+  public magazineId: number;
+  public entryDate: string | Date;
+}
