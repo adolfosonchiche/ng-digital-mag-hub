@@ -46,20 +46,32 @@ export class MagazineCostComponent implements OnInit{
   }
 
   updateCost(){
-    this.magazineService.updateCost(this.magazineCost).subscribe({
-      next: (magazine) => {
-        this.findAll();
-        this.toasterService.showSuccess("El costo de '" + magazine.name + "' ha sido actualizado.", "Éxito");
-      }, error: _ => this.toasterService.showDefaultError()
+    this.checkAllIsValid().then((allIsValid) => {
+      if (allIsValid) {
+        this.magazineService.updateCost(this.magazineCost).subscribe({
+          next: (magazine) => {
+            this.findAll();
+            this.toasterService.showSuccess("El costo de '" + magazine.name + "' ha sido actualizado.", "Éxito");
+          }, error: _ => this.toasterService.showDefaultError()
+        });
+      } else {
+        this.toasterService.showError("Complete todos los campos", "Error");
+      }
     });
   }
 
   updateCostAndPublish(){
-    this.magazineService.updateCostAndPublish(this.magazineCost).subscribe({
-      next: (magazine) => {
-        this.findAll();
-        this.toasterService.showSuccess("El costo de '" + magazine.name + "' ha sido actualizado.", "Éxito");
-      }, error: _ => this.toasterService.showDefaultError()
+    this.checkAllIsValid().then((allIsValid) => {
+      if (allIsValid) {
+        this.magazineService.updateCostAndPublish(this.magazineCost).subscribe({
+          next: (magazine) => {
+            this.findAll();
+            this.toasterService.showSuccess("El costo de '" + magazine.name + "' ha sido actualizado.", "Éxito");
+          }, error: _ => this.toasterService.showDefaultError()
+        });
+      } else {
+        this.toasterService.showError("Complete todos los campos", "Error");
+      }
     });
   }
 
@@ -69,6 +81,15 @@ export class MagazineCostComponent implements OnInit{
     this.magazineCost.name = magazine.name;
     this.magazineCost.cost = magazine.costPerDay;
     assignCostModal.open(undefined)
+  }
+
+  checkAllIsValid():Promise<boolean>{
+    return new Promise<boolean>((resolve, reject) => {
+      resolve(
+        this.magazineCost.cost != undefined &&
+        this.magazineCost.cost > 0
+      );
+    });
   }
 
 }
