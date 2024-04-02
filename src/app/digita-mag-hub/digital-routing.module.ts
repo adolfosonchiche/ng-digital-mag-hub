@@ -8,6 +8,9 @@ import {MagazineSearchComponent} from "./views/magazines/magazine-search/magazin
 import {MagazineSubscriptionComponent} from "./views/magazines/magazine-subscription/magazine-subscription.component";
 import {MagazineViewComponent} from "./views/magazines/magazine-view/magazine-view.component";
 import {UserCrudComponent} from "./views/users/user-crud/user-crud.component";
+import {
+  MagazineMostSubscriptionsComponent
+} from "./views/reports/magazine-most-subscriptions/magazine-most-subscriptions.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -26,6 +29,17 @@ const routes: Routes = [
       path: 'users',
       children: [
         { path: 'me', component: UserCrudComponent }
+      ]
+    },
+    {
+      path: 'reports',
+      children: [
+        {
+          path: 'magazine',
+          children: [
+            { path: 'most-subscriptions', component: MagazineMostSubscriptionsComponent }
+          ]
+        }
       ]
     }
   ];

@@ -7,7 +7,7 @@
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">Cancelar</button>
-    <button type="button" class="{{btnClass}}" (click)="executeAction()" >{{btnText}}</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">Regresar</button>
+    <button type="button" class="{{btnClass}}" (click)="executeAction()" *ngIf="confirmationAction.observed">{{btnText}}</button>
   </div>
 </ng-template>

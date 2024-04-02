@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="mt-5 d-flex flex-column align-items-center">
+      <h2>Las 5 revistas con más suscripciones</h2>
+    </div>
+    <div class="mt-3">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th class="th-number" scope="col">#</th>
+          <th class="th-name" scope="col">Nombre</th>
+          <th class="th-description" scope="col">Descripción</th>
+          <th class="th-category" scope="col">Categoría</th>
+          <th class="th-entry-date" scope="col">Fecha y hora de ingreso</th>
+          <th class="th-status" scope="col">Estado</th>
+          <th class="th-subscriptions" scope="col">Suscripciones</th>
+          <th class="th-actions" scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let magazine of magazines; let i = index">
+          <tr>
+            <th scope="row">{{i + 1}}</th>
+            <td>{{magazine.name}}</td>
+            <td>{{magazine.description}}</td>
+            <td>{{magazine.catCategory.value2}}</td>
+            <td>{{magazine.entryDate}}</td>
+            <td>{{magazine.catStatus.value2}}</td>
+            <td>{{magazine.subscriptions}}</td>
+            <td>
+              <app-action>
+                <button ngbDropdownItem (click)="openModal(magazine, subscriptionsModal)">Ver suscripciones</button>
+              </app-action>
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+<app-modal #subscriptionsModal
+           [title]="'Suscripciones'"
+           size="xl"
+>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="mt-3">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th class="th-s-number" scope="col">#</th>
+            <th class="th-s-user" scope="col">Usuario</th>
+            <th class="th-s-email" scope="col">Correo</th>
+            <th class="th-s-entry-date" scope="col">Fecha y hora de suscripción</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-container *ngFor="let subscription of subscriptions; let i = index">
+            <tr>
+              <th scope="row">{{i + 1}}</th>
+              <td>{{subscription.subscriber.fullName}}</td>
+              <td>{{subscription.subscriber.email}}</td>
+              <td>{{subscription.entryDate}}</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</app-modal>

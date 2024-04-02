@@ -38,6 +38,7 @@ export class MagazineDto {
   public file: string;
   public catReactionStatus!: CategoryDto;
   public catSubscriptionStatus!: CategoryDto;
+  public subscriptions!:number;
 }
 
 export class UpdateCostMagazineDto{
@@ -173,6 +174,16 @@ export class MagazineCommentDto {
 
   //frontend
   public userName: string;
+}
+
+export class MagazineSubscriptionDto {
+
+  public magazineSubscriptionId:number;
+  public magazineId:number;
+  public catStatus:CategoryDto;
+  public entryDate:string;
+  public subscriber:UserDto;
+
 }
 
 

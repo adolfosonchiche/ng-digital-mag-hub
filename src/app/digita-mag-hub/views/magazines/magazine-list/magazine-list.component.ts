@@ -27,7 +27,6 @@ export class MagazineListComponent implements OnInit{
   getAll() {
     this.magazineService.findMyMagazines().subscribe({
       next: (magazines) => {
-        console.log(magazines)
         this.magazines = magazines ?? [];
       }, error: _ => this.toasterService.showDefaultError()
     });
@@ -45,7 +44,6 @@ export class MagazineListComponent implements OnInit{
               );
         },
         error: (err) => {
-            console.log(err);
             this.toasterService.showError("No se puede bloquear las interacciones, intente más tarde");
         }
     });
@@ -63,7 +61,6 @@ export class MagazineListComponent implements OnInit{
               );
         },
         error: (err) => {
-            console.log(err);
             this.toasterService.showError("No se puede bloquear las interacciones, intente más tarde");
         }
     });
