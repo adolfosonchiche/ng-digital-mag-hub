@@ -44,7 +44,7 @@ export class MagazineMostSubscriptionsComponent implements OnInit {
   }
 
   openModal(magazine:MagazineDto, modal:ModalComponent){
-    this.reportService.findSubscriptions(magazine.magazineId).subscribe({
+    this.reportService.findSubscriptions(magazine.magazineId, this.fromDate, this.untilDate).subscribe({
       next: (subscriptions) => {
         this.subscriptions = subscriptions ?? [];
         modal.open(undefined);
