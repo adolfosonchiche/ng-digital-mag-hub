@@ -2,7 +2,25 @@
   <div class="col-1"></div>
   <div class="col-10">
     <div class="mt-5 d-flex flex-column align-items-center">
-      <h2>Las 5 revistas con más suscripciones</h2>
+      <h2>Las 5 revistas más populares</h2>
+    </div>
+    <div class="mt-3 mb-3 d-flex flex-column">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-1 d-flex flex-column align-items-end">
+          <h4 class="form-label">Desde</h4>
+        </div>
+        <div class="col-2">
+          <input type="date" class="form-control" id="from" name="from" [(ngModel)]="fromDate" (ngModelChange)="findAll()">
+        </div>
+        <div class="col-1 d-flex flex-column align-items-end">
+          <h4 class="form-label">Hasta</h4>
+        </div>
+        <div class="col-2">
+          <input type="date" class="form-control" id="until" name="until" [(ngModel)]="untilDate" (ngModelChange)="findAll()">
+        </div>
+        <div class="col-3"></div>
+      </div>
     </div>
     <div class="mt-3">
       <table class="table table-hover">

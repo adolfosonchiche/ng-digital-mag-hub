@@ -13,6 +13,8 @@ export class MagazineMostSubscriptionsComponent implements OnInit {
 
   magazines:MagazineDto[] = [];
   subscriptions:MagazineSubscriptionDto[] = [];
+  fromDate:string;
+  untilDate:string;
 
   constructor(
     private reportService:MagazineReportService,
@@ -21,11 +23,20 @@ export class MagazineMostSubscriptionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initDates();
     this.findAll();
   }
 
+  initDates(){
+    let currentDate = new Date();
+    this.untilDate = currentDate.toISOString().substring(0, 10);
+    let lastDate = new Date();
+    lastDate.setMonth(currentDate.getMonth() - 1);
+    this.fromDate = lastDate.toISOString().substring(0, 10);
+  }
+
   findAll(){
-    this.reportService.findByMostSubscriptions().subscribe({
+    this.reportService.findByMostSubscriptions(this.fromDate, this.untilDate).subscribe({
       next: (magazines) => {
         this.magazines = magazines ?? [];
       }, error: _ => this.toasterService.showDefaultError()

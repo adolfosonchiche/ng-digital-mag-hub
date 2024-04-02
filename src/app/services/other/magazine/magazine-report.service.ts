@@ -15,8 +15,11 @@ export class MagazineReportService {
     private http: HttpClient
   ) { }
 
-  findByMostSubscriptions():Observable<MagazineDto[]>{
-    return this.http.get<MagazineDto[]>(`${baseUrl}/by-most-subscriptions`)
+  findByMostSubscriptions(fromDate:string, untilDate:string):Observable<MagazineDto[]>{
+    let httpParams = new HttpParams();
+    httpParams = httpParams.set('fromDate', fromDate);
+    httpParams = httpParams.set('untilDate', untilDate);
+    return this.http.get<MagazineDto[]>(`${baseUrl}/by-most-subscriptions`, {params: httpParams})
   }
 
   findSubscriptions(magazineId:number):Observable<MagazineSubscriptionDto[]>{
