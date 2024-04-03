@@ -17,6 +17,7 @@ import { MagazinePreviewComponent } from './views/magazines/magazine-preview/mag
 import { ModalMagazinePreviewComponent } from './modals/modal-magazine-preview/modal-magazine-preview.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ModalMagazineCommentComponent } from './modals/modal-magazine-comment/modal-magazine-comment.component';
+import { ModalViewEditorProfileComponent } from './modals/modal-view-editor-profile/modal-view-editor-profile.component';
 
 
 
@@ -33,7 +34,8 @@ import { ModalMagazineCommentComponent } from './modals/modal-magazine-comment/m
     UserCrudComponent,
     ModalMagazinePreviewComponent,
     MagazinePreviewComponent,
-    ModalMagazineCommentComponent
+    ModalMagazineCommentComponent,
+    ModalViewEditorProfileComponent
   ],
   imports: [
     CommonModule,
