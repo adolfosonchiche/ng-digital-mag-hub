@@ -87,35 +87,8 @@
   <footer class="pt-3 mt-4 text-body-secondary border-top"></footer>
 </div>
 
-<div class="col-md-12 d-flex justify-content-center align-items-center" >
-  <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-  <h5 class="align-items-center display-6">Comentarios sobre la revista</h5>
-  <ng-container *ngIf="commentsList.length == 0">
-    <div class="d-inline-flex align-items-center">
-      <span>No hay comentarios</span>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="commentsList.length > 0">
-    <div *ngFor="let item of commentsList">
-      <div class="card m-2" style="width: 50rem;">
-        <div class="card-body">
-          <div class="d-flex flex-grow-1 flex-column gap-1">
-            <div class="d-flex align-items-center gap-3">
-              <span class="fw-bold">
-                {{item.userName}}
-              </span>
-              <span class="text-muted">
-                 {{ item.entryDate}}
-              </span>
-            </div>
-            <p class="m-0">{{item.comment}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-  </div>
-</div>
+<app-comment-from-a-magazine [commentsList]="commentsList">  
+</app-comment-from-a-magazine>
 
 
 <app-modal #confirmModal title="Confirmar subscripción" btnText="Suscribirme" (confirmationAction)="subscribe()">

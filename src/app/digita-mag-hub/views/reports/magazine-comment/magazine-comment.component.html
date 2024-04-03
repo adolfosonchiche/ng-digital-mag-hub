@@ -1,0 +1,16 @@
+<div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="mb-3 d-flex flex-column align-items-center">
+            <h1 class="d-flex">Reporte de comentarios</h1>
+        </div>
+        <label>Selecciona una revista</label>
+        <ng-select id="role" name="role" [clearable]="true" placeholder="Selecciona una revista" 
+            (change)="getComments()"    [multiple]="false"
+            [(ngModel)]="magazineSelected" [selectOnTab]="false" [hideSelected]="false" [items]="magazines" bindLabel="name"
+            [searchable]="true" required>
+        </ng-select>
+    </div>
+</div>
+
+<app-comment-from-a-magazine *ngIf="magazineSelected" [commentsList]="commentsList" [magazineName]="magazineSelected.name" ></app-comment-from-a-magazine>
