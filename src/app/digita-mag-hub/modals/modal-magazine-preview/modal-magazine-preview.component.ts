@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MagazineDto } from 'src/app/data/models/model';
 import { ModalComponent } from 'src/app/nab-commons/components/modal/modal.component';
+import { MagazineService } from 'src/app/services/other/magazine/magazine.service';
 
 
 
@@ -13,7 +14,8 @@ import { ModalComponent } from 'src/app/nab-commons/components/modal/modal.compo
 export class ModalMagazinePreviewComponent extends ModalComponent {
 
   constructor(
-    private ngbModal: NgbModal
+    private ngbModal: NgbModal,
+    private magazineService: MagazineService,
   ) {
     super(ngbModal)
   }
@@ -24,8 +26,14 @@ export class ModalMagazinePreviewComponent extends ModalComponent {
 
   openModal(magazine: MagazineDto) {
     this.magazineDto = magazine
-    this.pdfBase64 = magazine.file;
-    this.open(undefined)
+    this.magazineService.findViewById(this.magazineDto.magazineId).subscribe({
+      next: (dto) => {
+        console.log(dto)
+        this.pdfBase64 = dto.file;
+        this.open(undefined);
+      },
+      error: _ => console.log('error al obtener el archivo')
+    });
   }
 
 }

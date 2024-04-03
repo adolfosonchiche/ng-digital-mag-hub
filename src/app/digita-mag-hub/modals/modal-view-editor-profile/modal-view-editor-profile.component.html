@@ -1,0 +1,54 @@
+<ng-template #content let-modal>
+  <button type="button" class="btn-close rigth" (click)="close()"></button>
+  <div class="modal-body">
+    <section class="">
+      <div class="card border-primary mb-3" style="max-width: 80rem;">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-2">
+              <img [src]="editorDto.profilePhoto" alt="Fail load img" width="60" height="60">
+            </div>
+            <div class="col-8">
+              <h1 class="h4 fw-bold alert alert-info">{{editorDto.fullName}}</h1>              
+            </div>
+          </div>
+        </div>
+        <div class="card-body text-primary">
+          <h5 class="card-title">{{editorDto.email}}</h5>
+          <p class="card-text">Fecha de nacimiento: {{editorDto.birthday}}.</p>
+          <h6>Descripción</h6>
+          <p class="card-text">{{editorDto.description}}.</p>
+        </div>
+      </div>
+      <h5 class="modal-body d-flex justify-content-center align-items-center">Lista de revistas publicados</h5>
+      <table class="table table-bordered responsive">
+        <thead>
+          <tr>
+            <th class="th-number" scope="col">#</th>
+            <th class="th-name" scope="col">Nombre</th>
+            <th class="th-description" scope="col">Descripción</th>
+            <th class="th-category" scope="col">Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let magazine of magazineList; let i = index">
+            <tr>
+              <th scope="row">{{i + 1}}</th>
+              <td>{{magazine.name}}</td>
+              <td>{{magazine.description}}</td>
+              <td>{{magazine.catCategory.value2}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <div class="d-flex justify-content-between w-100">
+      <span> </span>
+      <button (click)="close()" class="btn btn-outline-primary">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</ng-template>

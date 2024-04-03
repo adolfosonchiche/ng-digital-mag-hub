@@ -147,6 +147,7 @@ export class MagazineSubscriptionComponent implements OnInit {
   }
 
   magazineLike() {
+    console.log(this.magazine)
     let newLike = new MagazineLikeRequest();
     newLike.magazineId = this.magazineId;
     newLike.like = ! this.isLiked;

@@ -61,4 +61,8 @@ export class MagazineService {
     return this.http.get<MagazineViewDto>(`${baseUrl}/view/${magazineId}`)
   }
 
+  findMagazineByEditorId(editorId:number):Observable<MagazineDto[]>{
+    return this.http.get<MagazineDto[]>(`${baseUrl}/editor/${editorId}`)
+  }
+
 }

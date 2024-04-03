@@ -18,6 +18,7 @@ import { ModalMagazinePreviewComponent } from './modals/modal-magazine-preview/m
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { ModalMagazineCommentComponent } from './modals/modal-magazine-comment/modal-magazine-comment.component';
 import { MagazineMostSubscriptionsComponent } from './views/reports/magazine-most-subscriptions/magazine-most-subscriptions.component';
+import { ModalViewEditorProfileComponent } from './modals/modal-view-editor-profile/modal-view-editor-profile.component';
 
 
 
@@ -35,7 +36,8 @@ import { MagazineMostSubscriptionsComponent } from './views/reports/magazine-mos
     ModalMagazinePreviewComponent,
     MagazinePreviewComponent,
     ModalMagazineCommentComponent,
-    MagazineMostSubscriptionsComponent
+    MagazineMostSubscriptionsComponent,
+    ModalViewEditorProfileComponent
   ],
   imports: [
     CommonModule,
