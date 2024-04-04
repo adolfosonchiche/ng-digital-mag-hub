@@ -14,7 +14,7 @@
             Revistas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a
+            <li [appCheckPermission]="roleEnum.EDITOR"><a
                 class="dropdown-item" href="/digital/magazines/create">Crear</a></li>
             <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/magazines">Mis
                 revistas</a></li>
