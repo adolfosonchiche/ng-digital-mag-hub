@@ -56,4 +56,18 @@ export class MagazineReportService {
     return this.http.get<SubscriptionProfitDto[]>(`${baseUrl}/profits/subscription/${magazineId}`, {params: httpParams})
   }
 
+  findMyGlobalProfits(fromDate:string, untilDate:string):Observable<GlobalProfitDto>{
+    let httpParams = new HttpParams();
+    httpParams = httpParams.set('from', fromDate);
+    httpParams = httpParams.set('until', untilDate);
+    return this.http.get<GlobalProfitDto>(`${baseUrl}/profits/global/my`, {params: httpParams})
+  }
+
+  findMySubscriptionProfits(magazineId:number, fromDate:string, untilDate:string):Observable<SubscriptionProfitDto[]>{
+    let httpParams = new HttpParams();
+    httpParams = httpParams.set('from', fromDate);
+    httpParams = httpParams.set('until', untilDate);
+    return this.http.get<SubscriptionProfitDto[]>(`${baseUrl}/profits/subscription/${magazineId}/my`, {params: httpParams})
+  }
+
 }
