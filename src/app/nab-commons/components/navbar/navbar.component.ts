@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CurrentUserService } from 'src/app/services/auth/current-user.service';
 import { UserDto } from 'src/app/data/models/model';
 import {Router} from "@angular/router";
+import { RolEnum } from 'src/global/roles-enum';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,8 @@ import {Router} from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
 
+  roleEnum = RolEnum;
+  permissionCreate : RolEnum[] = [RolEnum.EDITOR, RolEnum.ADMIN]
   currentUser!: UserDto;
   sumaryRole = '';
   constructor(

@@ -9,6 +9,7 @@ import {RateService} from "../../../../services/other/magazine/rate.service";
 import { MagazineLikeService } from 'src/app/services/other/magazine/magazine-like.service';
 import { CategoryEnum } from 'src/global/category-enum';
 import { MagazineCommentService } from 'src/app/services/other/magazine/magazine-comment.service';
+import { RolEnum } from 'src/global/roles-enum';
 
 @Component({
   selector: 'app-magazine-subscription',
@@ -17,6 +18,7 @@ import { MagazineCommentService } from 'src/app/services/other/magazine/magazine
 })
 export class MagazineSubscriptionComponent implements OnInit {
 
+  roleEnum= RolEnum;
   magazineId:number;
   magazine:MagazineDto;
   me:UserDto;

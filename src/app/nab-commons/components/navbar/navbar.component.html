@@ -9,30 +9,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             Revistas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/digital/magazines/create">Crear</a></li>
-            <li><a class="dropdown-item" href="/digital/magazines">Mis revistas</a></li>
-            <li><a class="dropdown-item" href="/digital/magazines/cost">Costos</a></li>
-            <li><a class="dropdown-item" href="/digital/magazines/search">Buscar</a></li>
+            <li [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a
+                class="dropdown-item" href="/digital/magazines/create">Crear</a></li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/magazines">Mis
+                revistas</a></li>
+            <li [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a
+                class="dropdown-item" href="/digital/magazines/cost">Costos</a></li>
+            <li [appCheckPermission]="roleEnum.SUSCRIPTOR"
+              [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a class="dropdown-item"
+                href="/digital/magazines/search">Buscar</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdownReports" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">
+        <li class="nav-item dropdown" [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]">
+          <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdownReports" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
             Reportes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownReports">
-            <li><a class="dropdown-item" href="/digital/reports/magazine/most-subscriptions">Revistas más populares</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/subscriptions-to-my-magazines">Suscripciones a mis revistas</a></li>
+            <li><a class="dropdown-item" href="/digital/reports/magazine/most-subscriptions">Revistas más populares</a>
+            </li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/subscriptions-to-my-magazines">Suscripciones a
+                mis revistas</a></li>
             <li><a class="dropdown-item" href="/digital/reports/magazine/admin-profits">Ganancias</a></li>
             <li><a class="dropdown-item" href="/digital/reports/magazine/editor-profits">Mis ganancias</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/comments">Comentarios sobre revistas</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/most-like">Revistas con más like</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/most-comment">Revistas con más comentarios</a></li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/comments">Comentarios sobre revistas</a></li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/most-like">Revistas con más like</a></li>
+            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item" href="/digital/reports/magazine/most-comment">Revistas con más comentarios</a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -47,11 +55,10 @@
               </span>
 
             </div>
-            <img class="profile-image ml-3" [src]="currentUser.profilePhoto ?? 'assets/icon/user.png'" width="40px"/>
+            <img class="profile-image ml-3" [src]="currentUser.profilePhoto ?? 'assets/icon/user.png'" width="40px" />
           </div>
 
-          <ul class="dropdown-menu dropdow-menu-rigth"
-          aria-labelledby="navbarUserDropdown">
+          <ul class="dropdown-menu dropdow-menu-rigth" aria-labelledby="navbarUserDropdown">
             <li><button class="dropdown-item small" (click)="goToProfile()">Perfil</button></li>
             <li>
               <hr class="dropdown-divider">
@@ -64,4 +71,4 @@
     </div>
   </div>
 </nav>
-<br/><br/>
+<br /><br />

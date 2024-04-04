@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { IconComponent } from './components/icon/icon.component';
 import { ActionComponent } from './components/action/action.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CheckPermissionDirective } from './security/check-permission.directive';
 
 
 
@@ -16,6 +17,7 @@ import { ModalComponent } from './components/modal/modal.component';
     IconComponent,
     ActionComponent,
     ModalComponent,
+    CheckPermissionDirective,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { ModalComponent } from './components/modal/modal.component';
     IconComponent,
     ActionComponent,
     ModalComponent,
+    CheckPermissionDirective,
   ]
 })
 export class HubCommonsModule { }

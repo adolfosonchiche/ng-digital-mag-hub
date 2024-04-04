@@ -11,7 +11,7 @@
         <div class="col-8">
           <h1 class="display-5 fw-bold">{{magazine.name}}</h1>
           <p class="col-md-10 fs-4 text-secondary">{{magazine.description}}</p>
-          <h6>Autor: {{magazine.author.fullName}}<button (click)="viewEditorProfile.openModal(magazine.author)" class="btn btn-outline-secondary m-2">Ver perfil</button></h6>
+          <h6>Autor: {{magazine.author.fullName}}<button [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.ADMIN, roleEnum.SUSCRIPTOR]" (click)="viewEditorProfile.openModal(magazine.author)" class="btn btn-outline-secondary m-2">Ver perfil</button></h6>
           <h6>Categoría: {{magazine.catCategory.value2}}</h6>
           <h6>Fecha de publicación: {{magazine.entryDate}}</h6>
           <h6 class="text-success">Costo mensual: Q. {{magazine.subscriptionCost}}</h6>
