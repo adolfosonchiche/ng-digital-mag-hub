@@ -86,7 +86,7 @@ export class MagazineCostComponent implements OnInit{
     this.isModalUpdate = isUpdate;
     this.magazineCost.magazineId = magazine.magazineId;
     this.magazineCost.name = magazine.name;
-    this.magazineCost.cost = magazine.cost.costPerDay;
+    this.magazineCost.cost = magazine.cost ? magazine.cost.costPerDay : undefined;
     assignCostModal.open(undefined)
   }
 
