@@ -34,7 +34,6 @@ export class AuthService {
     this.http.post<any>(`${baseUrl}/sign-in`, loginRequest)
       .pipe(
         tap(token => {
-            console.log(token)
           this.storeToken(token.jwt);
           return of('');
         }),

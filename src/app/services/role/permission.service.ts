@@ -27,7 +27,7 @@ export class PermissionsService {
                 } else if (element == 101) {
                     roleList.push(RolEnum.EDITOR);
                 } else if (element == 102) {
-                    roleList.push(RolEnum.SUSCRIPTOR);
+                    roleList.push(RolEnum.SUBSCRIPTOR);
                 }
             });
             return roleList;

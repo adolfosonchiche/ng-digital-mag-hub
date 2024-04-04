@@ -69,4 +69,8 @@ export class MagazineService {
     return this.http.get<MagazineDto[]>(`${baseUrl}/my/subscribed`)
   }
 
+  getLatestMagazines():Observable<MagazineDto[]>{
+    return this.http.get<MagazineDto[]>(`${baseUrl}/latest-magazine`)
+  }
+
 }

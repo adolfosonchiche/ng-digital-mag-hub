@@ -20,10 +20,10 @@
                 revistas</a></li>
             <li [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a
                 class="dropdown-item" href="/digital/magazines/cost">Costos</a></li>
-            <li [appCheckPermission]="roleEnum.SUSCRIPTOR"
+            <li [appCheckPermission]="roleEnum.SUBSCRIPTOR"
               [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a class="dropdown-item"
                 href="/digital/magazines/search">Buscar</a></li>
-            <li [appCheckPermission]="roleEnum.SUSCRIPTOR"><a class="dropdown-item"
+            <li [appCheckPermission]="roleEnum.SUBSCRIPTOR"><a class="dropdown-item"
                 href="/digital/magazines/my-subscriptions">Mis suscripciones</a></li>
           </ul>
         </li>
