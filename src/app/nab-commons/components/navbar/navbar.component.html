@@ -23,9 +23,12 @@
             <li [appCheckPermission]="roleEnum.SUSCRIPTOR"
               [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a class="dropdown-item"
                 href="/digital/magazines/search">Buscar</a></li>
+            <li [appCheckPermission]="roleEnum.SUSCRIPTOR"><a class="dropdown-item"
+                href="/digital/magazines/my-subscriptions">Mis suscripciones</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown" [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]">
+        <li class="nav-item dropdown" [appCheckPermission]="roleEnum.NONE"
+          [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]">
           <a class="nav-link dropdown-toggle nav-link active" href="#" id="navbarDropdownReports" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             Reportes
@@ -33,13 +36,17 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownReports">
             <li><a class="dropdown-item" href="/digital/reports/magazine/most-subscriptions">Revistas más populares</a>
             </li>
-            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/subscriptions-to-my-magazines">Suscripciones a
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
+                href="/digital/reports/magazine/subscriptions-to-my-magazines">Suscripciones a
                 mis revistas</a></li>
             <li><a class="dropdown-item" href="/digital/reports/magazine/admin-profits">Ganancias</a></li>
             <li><a class="dropdown-item" href="/digital/reports/magazine/editor-profits">Mis ganancias</a></li>
-            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/comments">Comentarios sobre revistas</a></li>
-            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/most-like">Revistas con más like</a></li>
-            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item" href="/digital/reports/magazine/most-comment">Revistas con más comentarios</a>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
+                href="/digital/reports/magazine/comments">Comentarios sobre revistas</a></li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
+                href="/digital/reports/magazine/most-like">Revistas con más like</a></li>
+            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item"
+                href="/digital/reports/magazine/most-comment">Revistas con más comentarios</a>
             </li>
           </ul>
         </li>

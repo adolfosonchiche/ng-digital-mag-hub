@@ -19,6 +19,7 @@ import { MagazineMostCommentComponent } from "./views/reports/magazine-most-comm
 import {
   SubscriptionsToMyMagazinesComponent
 } from "./views/reports/subscriptions-to-my-magazines/subscriptions-to-my-magazines.component";
+import { MySubscriptionsComponent } from "./views/magazines/my-subscriptions/my-subscriptions.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
         { path: 'search', component: MagazineSearchComponent },
         { path: 'subscription/:magazineId', component: MagazineSubscriptionComponent },
         { path: 'subscription/:magazineId/view', component: MagazineViewComponent },
+        { path: 'my-subscriptions', component: MySubscriptionsComponent },
       ]
     },
     {

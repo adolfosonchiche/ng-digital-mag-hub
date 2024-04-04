@@ -1,0 +1,45 @@
+<div class="justify-content-center align-items-center p-5">
+    <div class="p-5  border rounded-3">
+        <h5 class="modal-body d-flex justify-content-center align-items-center mt-2">
+            Revistas a la que estoy suscrito
+        </h5>
+        <ng-container *ngIf="magazineList.length == 0">
+            <div class="d-inline-flex justify-content-center align-items-center ">
+                <span>No hay revistas disponibles</span>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="magazineList.length > 0">
+            <table class="table table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th class="th-number" scope="col">#</th>
+                        <th class="th-name" scope="col">Nombre</th>
+                        <th class="th-description" scope="col">Descripción</th>
+                        <th class="th-category" scope="col">Categoria</th>
+                        <th class="th-author" scope="col">Autor</th>
+                        <th class="th-action" scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let magazine of magazineList; let i = index">
+                        <tr>
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{magazine.name}}</td>
+                            <td>{{magazine.description}}</td>
+                            <td>{{magazine.catCategory.value2}}</td>
+                            <td>{{magazine.author.fullName}}</td>
+                            <td>
+                                <app-action>
+                                    <button ngbDropdownItem (click)="goToSubscription(magazine.magazineId)">
+                                        Ir a detalles de revista
+                                    </button>
+                                    <button ngbDropdownItem type="button" (click)="goToViewMagazine(magazine.magazineId)">Ver revista</button>
+                                </app-action>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </ng-container>
+    </div>
+</div>
