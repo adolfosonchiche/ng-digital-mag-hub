@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MagazineReportService} from "../../../../services/other/magazine/magazine-report.service";
 import {ToasterService} from "../../../../services/other/toaster/toaster.service";
-import {MagazineDto, MagazineProfitDto, SubscriptionProfitDto} from "../../../../data/models/model";
+import {GlobalProfitDto, MagazineDto, MagazineProfitDto, SubscriptionProfitDto} from "../../../../data/models/model";
 import {ModalComponent} from "../../../../nab-commons/components/modal/modal.component";
 
 @Component({
@@ -15,6 +15,7 @@ export class AdminProfitsComponent implements OnInit {
   subscriptionsProfits:SubscriptionProfitDto[] = [];
   fromDate:string;
   untilDate:string;
+  global:GlobalProfitDto;
 
   constructor(
     private reportService:MagazineReportService,
@@ -39,6 +40,11 @@ export class AdminProfitsComponent implements OnInit {
     this.reportService.findMagazineProfits(this.fromDate, this.untilDate).subscribe({
       next: (profits) => {
         this.profits = profits ?? [];
+      }, error: _ => this.toasterService.showDefaultError()
+    });
+    this.reportService.findGlobalProfits(this.fromDate, this.untilDate).subscribe({
+      next: (profits) => {
+        this.global = profits;
       }, error: _ => this.toasterService.showDefaultError()
     });
   }
