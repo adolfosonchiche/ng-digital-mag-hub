@@ -72,7 +72,7 @@
             <td>{{magazine.entryDate}}</td>
             <td>{{magazine.author.fullName}}</td>
             <td>{{magazine.catStatus.value2}}</td>
-            <td>{{magazine.costPerDay}}</td>
+            <td>{{magazine.cost ? magazine.cost.costPerDay : undefined}}</td>
             <td>
               <app-action>
                 <button ngbDropdownItem (click)="openAssignModal(magazine, assignCostModal, true)">Actualizar costo</button>

@@ -32,13 +32,13 @@ export class MagazineDto {
   public entryDate:string;
   public catStatus:CategoryDto;
   public author:UserDto;
-  public costPerDay:number;
   public subscriptionCost:number;
   public cover:string;
   public file: string;
   public catReactionStatus!: CategoryDto;
   public catSubscriptionStatus!: CategoryDto;
   public subscriptions!:number;
+  public cost:MagazineCostDto;
 }
 
 export class UpdateCostMagazineDto{
@@ -213,4 +213,10 @@ export class MagazineReationDto {
   public magazineName: string;
   public description: string;
   public count: number;
+}
+
+export class MagazineCostDto {
+  public magazineId:number;
+  public costPerDay:number;
+  public entryDate:string;
 }

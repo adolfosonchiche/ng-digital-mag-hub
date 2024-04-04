@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {
+  MagazineCostDto,
   MagazineDto,
   MagazineReactionStatusDto,
   MagazineViewDto,
@@ -43,6 +44,10 @@ export class MagazineService {
 
   updateCostAndPublish(dto:UpdateCostMagazineDto):Observable<MagazineDto>{
     return this.http.put<MagazineDto>(`${baseUrl}/update-cost-and-publish`, dto);
+  }
+
+  findMagazineCost(magazineId:number):Observable<MagazineCostDto>{
+    return this.http.get<MagazineCostDto>(`${baseUrl}/find-cost/${magazineId}`);
   }
 
   changeReactionStatus(dto: MagazineReactionStatusDto):Observable<boolean> {

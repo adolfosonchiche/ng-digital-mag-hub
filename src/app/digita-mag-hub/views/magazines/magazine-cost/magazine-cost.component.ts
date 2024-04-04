@@ -40,6 +40,13 @@ export class MagazineCostComponent implements OnInit{
     this.magazineService.findByQuery(paramsPublished).subscribe({
       next: (magazines) => {
         this.publishedMagazines = magazines ?? [];
+        this.publishedMagazines.forEach(magazine => {
+          this.magazineService.findMagazineCost(magazine.magazineId).subscribe({
+            next: (dto) => {
+              magazine.cost = dto;
+            }, error: _ => this.toasterService.showDefaultError()
+          });
+        });
       }, error: _ => this.toasterService.showDefaultError()
     });
     this.magazineCost = new UpdateCostMagazineDto();
@@ -79,7 +86,7 @@ export class MagazineCostComponent implements OnInit{
     this.isModalUpdate = isUpdate;
     this.magazineCost.magazineId = magazine.magazineId;
     this.magazineCost.name = magazine.name;
-    this.magazineCost.cost = magazine.costPerDay;
+    this.magazineCost.cost = magazine.cost.costPerDay;
     assignCostModal.open(undefined)
   }
 

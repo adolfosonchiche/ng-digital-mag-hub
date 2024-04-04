@@ -11,7 +11,7 @@
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Descripción</label>
-        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="newMagazine.description">
+        <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="newMagazine.description" maxlength="199"></textarea>
       </div>
       <div class="mb-3">
         <label for="category" class="form-label">Selecciona una categoría</label>
