@@ -13,6 +13,7 @@ import {
 } from "./views/reports/magazine-most-subscriptions/magazine-most-subscriptions.component";
 import { MagazineCommentComponent } from "./views/reports/magazine-comment/magazine-comment.component";
 import {AdminProfitsComponent} from "./views/reports/admin-profits/admin-profits.component";
+import { MagazineMostLikeComponent } from "./views/reports/magazine-most-like/magazine-most-like.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
           children: [
             { path: 'most-subscriptions', component: MagazineMostSubscriptionsComponent },
             { path: 'admin-profits', component: AdminProfitsComponent },
-            { path: 'comments', component: MagazineCommentComponent }
+            { path: 'comments', component: MagazineCommentComponent },
+            { path: 'most-like', component: MagazineMostLikeComponent }
           ]
         }
       ]

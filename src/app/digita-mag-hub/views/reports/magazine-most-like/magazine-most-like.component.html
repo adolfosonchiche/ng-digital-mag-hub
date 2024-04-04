@@ -1,0 +1,42 @@
+<div class="justify-content-center align-items-center p-5">
+    <div class="p-5  border rounded-3">
+        <h5 class="modal-body d-flex justify-content-center align-items-center mt-2">
+            Reporte de Revistas con más 'Like' <i class="fas fa-thumbs-up"></i>
+        </h5>
+        <ng-container *ngIf="mostLikeList.length == 0">
+            <div class="d-inline-flex justify-content-center align-items-center ">
+                <span>No hay revistas disponibles</span>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="mostLikeList.length > 0">
+            <table class="table table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th class="th-number" scope="col">#</th>
+                        <th class="th-name" scope="col">Nombre</th>
+                        <th class="th-description" scope="col">Descripción</th>
+                        <th class="th-category" scope="col">Total de 'Like'</th>
+                        <th class="th-category" scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let like of mostLikeList; let i = index">
+                        <tr>
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{like.magazineName}}</td>
+                            <td>{{like.description}}</td>
+                            <td>{{like.count}}</td>
+                            <td>
+                                <app-action>
+                                    <button ngbDropdownItem (click)="goToSubscription(like.magazineId)">
+                                        Ver revista
+                                    </button>
+                                </app-action>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </ng-container>
+    </div>
+</div>

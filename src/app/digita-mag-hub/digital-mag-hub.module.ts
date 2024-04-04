@@ -22,6 +22,7 @@ import { ModalViewEditorProfileComponent } from './modals/modal-view-editor-prof
 import { CommentFromAMagazineComponent } from './components/comment-from-a-magazine/comment-from-a-magazine.component';
 import { MagazineCommentComponent } from './views/reports/magazine-comment/magazine-comment.component';
 import { AdminProfitsComponent } from './views/reports/admin-profits/admin-profits.component';
+import { MagazineMostLikeComponent } from './views/reports/magazine-most-like/magazine-most-like.component';
 
 
 
@@ -43,7 +44,8 @@ import { AdminProfitsComponent } from './views/reports/admin-profits/admin-profi
     ModalViewEditorProfileComponent,
     CommentFromAMagazineComponent,
     MagazineCommentComponent,
-    AdminProfitsComponent
+    AdminProfitsComponent,
+    MagazineMostLikeComponent
   ],
   imports: [
     CommonModule,

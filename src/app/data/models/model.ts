@@ -207,3 +207,10 @@ export class SubscriptionProfitDto {
   public income:number;
   public profit:number;
 }
+
+export class MagazineReationDto {
+  public magazineId: number;
+  public magazineName: string;
+  public description: string;
+  public count: number;
+}
