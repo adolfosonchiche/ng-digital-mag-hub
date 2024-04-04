@@ -94,7 +94,7 @@ export class MagazineCrudComponent implements OnInit{
         this.newMagazine.file != undefined &&
         this.newMagazine.cover != undefined &&
         this.newMagazine.subscriptionCost != undefined &&
-        this.newMagazine.subscriptionCost > 0
+        this.newMagazine.subscriptionCost >= 0
       );
     });
   }
