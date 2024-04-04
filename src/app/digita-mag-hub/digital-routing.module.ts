@@ -16,6 +16,9 @@ import {AdminProfitsComponent} from "./views/reports/admin-profits/admin-profits
 import { MagazineMostLikeComponent } from "./views/reports/magazine-most-like/magazine-most-like.component";
 import {EditorProfitsComponent} from "./views/reports/editor-profits/editor-profits.component";
 import { MagazineMostCommentComponent } from "./views/reports/magazine-most-comment/magazine-most-comment.component";
+import {
+  SubscriptionsToMyMagazinesComponent
+} from "./views/reports/subscriptions-to-my-magazines/subscriptions-to-my-magazines.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -43,6 +46,7 @@ const routes: Routes = [
           path: 'magazine',
           children: [
             { path: 'most-subscriptions', component: MagazineMostSubscriptionsComponent },
+            { path: 'subscriptions-to-my-magazines', component: SubscriptionsToMyMagazinesComponent },
             { path: 'admin-profits', component: AdminProfitsComponent },
             { path: 'editor-profits', component: EditorProfitsComponent },
             { path: 'comments', component: MagazineCommentComponent },

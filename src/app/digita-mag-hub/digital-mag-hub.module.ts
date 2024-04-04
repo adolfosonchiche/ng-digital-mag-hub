@@ -25,6 +25,7 @@ import { AdminProfitsComponent } from './views/reports/admin-profits/admin-profi
 import { MagazineMostLikeComponent } from './views/reports/magazine-most-like/magazine-most-like.component';
 import { EditorProfitsComponent } from './views/reports/editor-profits/editor-profits.component';
 import { MagazineMostCommentComponent } from './views/reports/magazine-most-comment/magazine-most-comment.component';
+import { SubscriptionsToMyMagazinesComponent } from './views/reports/subscriptions-to-my-magazines/subscriptions-to-my-magazines.component';
 
 
 
@@ -50,6 +51,7 @@ import { MagazineMostCommentComponent } from './views/reports/magazine-most-comm
     MagazineMostLikeComponent,
     EditorProfitsComponent,
     MagazineMostCommentComponent,
+    SubscriptionsToMyMagazinesComponent,
   ],
   imports: [
     CommonModule,
