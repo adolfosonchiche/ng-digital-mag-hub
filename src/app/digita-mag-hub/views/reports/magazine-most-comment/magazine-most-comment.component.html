@@ -1,26 +1,26 @@
 <div class="justify-content-center align-items-center p-5">
     <div class="p-5  border rounded-3">
         <h5 class="modal-body d-flex justify-content-center align-items-center mt-2">
-            Revistas con más 'Like' <i class="fas fa-thumbs-up"></i>
+            Revistas con más 'Comentarios' <i class="fas fa-comment"></i>
         </h5>
-        <ng-container *ngIf="mostLikeList.length == 0">
+        <ng-container *ngIf="mostCommentList.length == 0">
             <div class="d-inline-flex justify-content-center align-items-center ">
                 <span>No hay revistas disponibles</span>
             </div>
         </ng-container>
-        <ng-container *ngIf="mostLikeList.length > 0">
+        <ng-container *ngIf="mostCommentList.length > 0">
             <table class="table table-bordered responsive">
                 <thead>
                     <tr>
                         <th class="th-number" scope="col">#</th>
                         <th class="th-name" scope="col">Nombre</th>
                         <th class="th-description" scope="col">Descripción</th>
-                        <th class="th-category" scope="col">Total de 'Like'</th>
+                        <th class="th-category" scope="col">Total de comentarios</th>
                         <th class="th-category" scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let like of mostLikeList; let i = index">
+                    <ng-container *ngFor="let like of mostCommentList; let i = index">
                         <tr>
                             <th scope="row">{{i + 1}}</th>
                             <td>{{like.magazineName}}</td>
