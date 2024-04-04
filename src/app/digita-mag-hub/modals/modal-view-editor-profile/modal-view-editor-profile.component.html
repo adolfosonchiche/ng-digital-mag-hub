@@ -6,10 +6,10 @@
         <div class="card-header">
           <div class="row">
             <div class="col-2">
-              <img [src]="editorDto.profilePhoto" alt="Fail load img" width="60" height="60">
+              <img [src]="editorDto.profilePhoto ?? 'assets/icon/user.png'" alt="Fail load img" width="60" height="60">
             </div>
             <div class="col-8">
-              <h1 class="h4 fw-bold alert alert-info">{{editorDto.fullName}}</h1>              
+              <h1 class="h4 fw-bold alert alert-info">{{editorDto.fullName}}</h1>
             </div>
           </div>
         </div>
@@ -20,7 +20,7 @@
           <p class="card-text">{{editorDto.description}}.</p>
         </div>
       </div>
-      <h5 class="modal-body d-flex justify-content-center align-items-center">Lista de revistas publicados</h5>
+      <h5 class="modal-body d-flex justify-content-center align-items-center">Lista de revistas publicadas</h5>
       <table class="table table-bordered responsive">
         <thead>
           <tr>

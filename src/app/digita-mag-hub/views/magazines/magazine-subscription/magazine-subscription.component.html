@@ -46,10 +46,12 @@
             <app-icon name="check_circle" class="m-2" [size]="35"></app-icon>
           </div>
           <p>Disfruta del contenido de la revista, recuerda dejar tus comentarios y reacciones para mejorar la experiencia.</p>
-          <button class="btn btn-outline-primary" type="button" (click)="goToViewMagazine()">Ver revista</button>
-          <button class="btn btn-outline-primary m-2" type="button" (click)="downloadMagazine()"><i class="fas fa-download"></i>Descargar</button>
+          <button class="btn btn-outline-primary" type="button" (click)="goToViewMagazine()">
+            <i class="fas fa-newspaper"></i> Ver revista
+          </button>
+          <button class="btn btn-outline-primary m-2" type="button" (click)="downloadMagazine()"><i class="fas fa-download"></i> Descargar</button>
           <button *ngIf="magazine.catReactionStatus.categoryId == categoryEnums.ACTIVE"
-            class="btn btn-outline-primary" 
+            class="btn btn-outline-primary"
             data-bs-toggle="tooltip" data-bs-placement="top" title="Comentar revista"
             type="button" (click)="modalMagazineComment.openModal(magazine)"><i class="fas fa-comment"></i> Comentar
           </button>
@@ -87,7 +89,7 @@
   <footer class="pt-3 mt-4 text-body-secondary border-top"></footer>
 </div>
 
-<app-comment-from-a-magazine [commentsList]="commentsList">  
+<app-comment-from-a-magazine [commentsList]="commentsList">
 </app-comment-from-a-magazine>
 
 
