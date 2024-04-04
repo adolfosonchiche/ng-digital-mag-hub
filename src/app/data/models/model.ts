@@ -186,4 +186,24 @@ export class MagazineSubscriptionDto {
 
 }
 
+export class MagazineProfitDto {
+  public magazineId:number;
+  public name:string;
+  public costTotal:number;
+  public incomeTotal:number;
+  public profitTotal:number;
+}
 
+export class GlobalProfitDto {
+  public income:number;
+  public cost:number;
+  public profit:number;
+}
+
+export class SubscriptionProfitDto {
+  public userId:number;
+  public subscriber:UserDto;
+  public entryDate:string;
+  public income:number;
+  public profit:number;
+}

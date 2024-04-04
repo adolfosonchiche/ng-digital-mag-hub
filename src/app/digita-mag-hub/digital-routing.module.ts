@@ -12,6 +12,7 @@ import {
   MagazineMostSubscriptionsComponent
 } from "./views/reports/magazine-most-subscriptions/magazine-most-subscriptions.component";
 import { MagazineCommentComponent } from "./views/reports/magazine-comment/magazine-comment.component";
+import {AdminProfitsComponent} from "./views/reports/admin-profits/admin-profits.component";
 
 const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
           path: 'magazine',
           children: [
             { path: 'most-subscriptions', component: MagazineMostSubscriptionsComponent },
+            { path: 'admin-profits', component: AdminProfitsComponent },
             { path: 'comments', component: MagazineCommentComponent }
           ]
         }
