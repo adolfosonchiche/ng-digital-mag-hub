@@ -23,6 +23,7 @@ import { CommentFromAMagazineComponent } from './components/comment-from-a-magaz
 import { MagazineCommentComponent } from './views/reports/magazine-comment/magazine-comment.component';
 import { AdminProfitsComponent } from './views/reports/admin-profits/admin-profits.component';
 import { MagazineMostLikeComponent } from './views/reports/magazine-most-like/magazine-most-like.component';
+import { MagazineMostCommentComponent } from './views/reports/magazine-most-comment/magazine-most-comment.component';
 
 
 
@@ -45,7 +46,8 @@ import { MagazineMostLikeComponent } from './views/reports/magazine-most-like/ma
     CommentFromAMagazineComponent,
     MagazineCommentComponent,
     AdminProfitsComponent,
-    MagazineMostLikeComponent
+    MagazineMostLikeComponent,
+    MagazineMostCommentComponent
   ],
   imports: [
     CommonModule,
