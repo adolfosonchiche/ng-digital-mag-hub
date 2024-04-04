@@ -18,8 +18,7 @@
                 class="dropdown-item" href="/digital/magazines/create">Crear</a></li>
             <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/magazines">Mis
                 revistas</a></li>
-            <li [appCheckPermission]="roleEnum.NONE" [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a
-                class="dropdown-item" href="/digital/magazines/cost">Costos</a></li>
+            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item" href="/digital/magazines/cost">Costos</a></li>
             <li [appCheckPermission]="roleEnum.SUBSCRIPTOR"
               [checkMultiplePermissions]="[roleEnum.EDITOR, roleEnum.ADMIN]"><a class="dropdown-item"
                 href="/digital/magazines/search">Buscar</a></li>
@@ -34,13 +33,13 @@
             Reportes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownReports">
-            <li><a class="dropdown-item" href="/digital/reports/magazine/most-subscriptions">Revistas más populares</a>
+            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item" href="/digital/reports/magazine/most-subscriptions">Revistas más populares</a>
             </li>
             <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
                 href="/digital/reports/magazine/subscriptions-to-my-magazines">Suscripciones a
                 mis revistas</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/admin-profits">Ganancias</a></li>
-            <li><a class="dropdown-item" href="/digital/reports/magazine/editor-profits">Mis ganancias</a></li>
+            <li [appCheckPermission]="roleEnum.ADMIN"><a class="dropdown-item" href="/digital/reports/magazine/admin-profits">Ganancias</a></li>
+            <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item" href="/digital/reports/magazine/editor-profits">Mis ganancias</a></li>
             <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
                 href="/digital/reports/magazine/comments">Comentarios sobre revistas</a></li>
             <li [appCheckPermission]="roleEnum.EDITOR"><a class="dropdown-item"
